@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="HR.Share.PublicShare.CustomUserControl.WpfUserControl.SearchTextBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HR.Share.PublicShare.CustomUserControl.WpfUserControl"
+             mc:Ignorable="d" MinHeight="30" MinWidth="150" Background="Transparent"
+             d:DesignHeight="30" d:DesignWidth="150">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="36"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Rectangle Grid.Column="0" Grid.ColumnSpan="3" Fill="LightGray" RadiusX="15" RadiusY="15" Opacity="0.8"></Rectangle>
+
+        <TextBox x:Name="TbxInput" Grid.Column="1" KeyDown="TbxInput_OnKeyDown">
+            <TextBox.Template>
+                <ControlTemplate TargetType="TextBox">
+                    <Grid>
+                        <TextBlock x:Name="Uc_TblShow" Text="请输入..." Foreground="Gray" Opacity="0.5" VerticalAlignment="Center" Visibility="Collapsed"></TextBlock>
+                        <TextBox x:Name="Uc_TbxContent" Foreground="Gray" Background="Transparent" VerticalAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0"
+                 Text="{Binding ElementName=TbxInput,Path=Text,Mode=TwoWay}" FontSize="18"></TextBox>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger SourceName="Uc_TbxContent" Property="Text" Value="">
+                            <Setter TargetName="Uc_TblShow" Property="Visibility" Value="Visible"></Setter>
+                        </Trigger>
+                        <Trigger SourceName="Uc_TbxContent" Property="IsFocused" Value="True">
+                            <Setter TargetName="Uc_TblShow" Property="Visibility" Value="Collapsed"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </TextBox.Template>
+        </TextBox>
+
+        <Button x:Name="BtnSearch" Grid.Column="2" Click="BtnSearch_OnClick" Cursor="Hand">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Image x:Name="Uc_Image" Source="pack://application:,,,/HR.Share.PublicShare;component/Resoures/search.png" Height="20" Width="20"></Image>
+                        <ContentPresenter></ContentPresenter>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="Uc_Image" Property="Height" Value="25"></Setter>
+                            <Setter TargetName="Uc_Image" Property="Width" Value="25"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+    </Grid>
+</UserControl>

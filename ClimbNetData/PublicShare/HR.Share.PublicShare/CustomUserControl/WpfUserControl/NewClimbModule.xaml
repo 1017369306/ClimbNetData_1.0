@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="HR.Share.PublicShare.CustomUserControl.WpfUserControl.NewClimbModule"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HR.Share.PublicShare.CustomUserControl.WpfUserControl"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="150">
+    <Grid Margin="10,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Content="最新模板上线" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" FontSize="16" Height="40" Foreground="Black"/>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <WrapPanel Grid.Row="0">
+                <Label Content="1" Foreground="#FF124897" Margin="0,0,10,0" />
+                <Label Content="人民网-滚动" Grid.Row="0" VerticalContentAlignment="Center" FontSize="12" Foreground="Black"/>
+            </WrapPanel>
+            <WrapPanel Grid.Row="1">
+                <Label Content="2" Foreground="#FF124897" Margin="0,0,10,0" />
+                <Label Content="人民网-滚动" Grid.Row="0" VerticalContentAlignment="Center" FontSize="12" Foreground="Black"/>
+            </WrapPanel>
+            <WrapPanel Grid.Row="2">
+                <Label Content="3" Foreground="#FF124897" Margin="0,0,10,0" />
+                <Label Content="人民网-滚动" Grid.Row="0" VerticalContentAlignment="Center" FontSize="12" Foreground="Black"/>
+            </WrapPanel>
+            <WrapPanel Grid.Row="3">
+                <Label Content="4" Foreground="#FF124897" Margin="0,0,10,0" />
+                <Label Content="人民网-滚动" Grid.Row="0" VerticalContentAlignment="Center" FontSize="12" Foreground="Black"/>
+            </WrapPanel>
+            <WrapPanel Grid.Row="4">
+                <Label Content="5" Foreground="#FF124897" Margin="0,0,10,0" />
+                <Label Content="人民网-滚动" Grid.Row="0" VerticalContentAlignment="Center" FontSize="12" Foreground="Black"/>
+            </WrapPanel>
+            <WrapPanel Grid.Row="5">
+                <Label Content="6" Foreground="#FF124897" Margin="0,0,10,0" />
+                <Label Content="人民网-滚动" Grid.Row="0" VerticalContentAlignment="Center" FontSize="12" Foreground="Black"/>
+            </WrapPanel>
+            <WrapPanel Grid.Row="6">
+                <Label Content="7" Foreground="#FF124897" Margin="0,0,10,0" />
+                <Label Content="人民网-滚动" Grid.Row="0" VerticalContentAlignment="Center" FontSize="12" Foreground="Black"/>
+            </WrapPanel>
+            <WrapPanel Grid.Row="7">
+                <Label Content="8" Foreground="#FF124897" Margin="0,0,10,0" />
+                <Label Content="人民网-滚动" Grid.Row="0" VerticalContentAlignment="Center" FontSize="12" Foreground="Black"/>
+            </WrapPanel>
+        </Grid>
+    </Grid>
+</UserControl>

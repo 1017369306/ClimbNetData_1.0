@@ -1,0 +1,60 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:PublicResources.Resources.Styles">
+
+    <Style x:Key="ceshi" TargetType="Button">
+        <Style.Setters>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="Content" Value="测试"/>
+        </Style.Setters>
+    </Style>
+
+    <Style x:Key="BtnEllipse" TargetType="Ellipse">
+        <Style.Setters>
+            <Setter Property="Fill">
+                <Setter.Value>
+                    <ImageBrush ImageSource=""/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Grid.Row" Value="0"/>
+        </Style.Setters>
+    </Style>
+
+    <Style x:Key="buttonImg" TargetType="Button">
+        <Style.Setters>
+            <Setter Property="Margin" Value="5,0,0,0"/>
+            <Setter Property="Width" Value="10"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid x:Name="grid" VerticalAlignment="Top" Margin="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <!--<Ellipse Name="ep" Width="36" Height="36" VerticalAlignment="Top" Stroke="LightBlue">
+                                --><!--<Ellipse.Fill>
+                                    <ImageBrush x:Name="coles" ImageSource="{Binding ElementName=grid,Path=Tag}"/>
+                                </Ellipse.Fill>--><!--
+                                <Ellipse.Fill>
+                                    <ImageBrush x:Name="coles" ImageSource="{Binding ElementName=grid,Path=Tag}"/>
+                                </Ellipse.Fill>
+                            </Ellipse>-->
+                            <!--<TextBlock Name="et" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12"/>-->
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Trigger.Setters>
+                                    <!--<Setter TargetName="ep" Property="Width" Value="40"/>
+                                    <Setter TargetName="ep" Property="Height" Value="40"/>
+                                    <Setter TargetName="et" Property="FontSize" Value="12"/>-->
+                                </Trigger.Setters>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style.Setters>
+    </Style>
+    
+</ResourceDictionary>
