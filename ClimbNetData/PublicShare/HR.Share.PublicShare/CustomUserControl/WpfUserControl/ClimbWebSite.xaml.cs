@@ -13,22 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ChooseModule
+namespace HR.Share.PublicShare.CustomUserControl.WpfUserControl
 {
     /// <summary>
-    /// ChooseClimbModule.xaml 的交互逻辑
+    /// ClimbWebSite.xaml 的交互逻辑
     /// </summary>
-    public partial class ChooseClimbModule : UserControl
+    public partial class ClimbWebSite : UserControl
     {
-
-        #region 属性
-        ChooseClimbModuleProvider _provider = null;
-        #endregion
-
-        public ChooseClimbModule(ChooseClimbModuleProvider provider)
+        public ClimbWebSite()
         {
             InitializeComponent();
-            this._provider = provider;
         }
     }
 }

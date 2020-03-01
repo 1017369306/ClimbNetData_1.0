@@ -57,6 +57,28 @@ namespace HR.Share.PublicShare
         }
 
         /// <summary>
+        /// 遍历枚举，得到此枚举的所有枚举属性list
+        /// </summary>
+        /// <typeparam name="T">枚举type</typeparam>
+        /// <returns></returns>
+        public static List<T> foreachEnum<T>()
+        {
+            try
+            {
+                List<T> list = new List<T>();
+                foreach (T enumTemp in Enum.GetValues(typeof(T)))
+                {
+                    list.Add(enumTemp);
+                }
+                return list;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
         /// 获得枚举的描述
         /// </summary>
         /// <param name="enumValue"></param>

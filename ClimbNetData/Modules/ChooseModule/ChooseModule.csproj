@@ -48,6 +48,7 @@
     <Compile Include="ChooseClimbModule.xaml.cs">
       <DependentUpon>ChooseClimbModule.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ChooseClimbModuleProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -60,6 +61,10 @@
     <ProjectReference Include="..\..\PublicShare\HR.Share.PublicShare\HR.Share.PublicShare.csproj">
       <Project>{5df8e10a-ecac-4835-8962-a83530400421}</Project>
       <Name>HR.Share.PublicShare</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\PublicShare\log4net\log4net.csproj">
+      <Project>{06c3ec45-8a4a-4428-9753-84f113d70c5d}</Project>
+      <Name>log4net</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
