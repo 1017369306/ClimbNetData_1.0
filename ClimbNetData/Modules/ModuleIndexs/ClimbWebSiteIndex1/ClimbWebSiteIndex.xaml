@@ -39,8 +39,9 @@
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
-                <!--<WpfUserControl:ClimbWebSite  Grid.Row="0" Grid.Column="0" />
-                <WpfUserControl:ClimbWebSite  Grid.Row="0" Grid.Column="1" />-->
+                <!--<Image Source="pack://application:,,,/HR.Share.PublicShare;component/Resources/taobao.jpg"/>-->
+                <WpfUserControl:ClimbWebSite  Grid.Row="0" Grid.Column="0" DataContext=" />
+                <WpfUserControl:ClimbWebSite  Grid.Row="0" Grid.Column="1" />
 
             </Grid>
 
@@ -53,8 +54,5 @@
             </Grid>
 
         </Grid>
-
-        <!--<local:ClimbWebSite Grid.Row="0" Grid.Column="0"></local:ClimbWebSite>-->
-
     </Grid>
 </UserControl>

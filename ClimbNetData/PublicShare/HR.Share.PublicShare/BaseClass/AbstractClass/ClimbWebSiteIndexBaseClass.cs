@@ -13,6 +13,7 @@ namespace HR.Share.PublicShare.BaseClass.AbstractClass
         #region 变量
         private string _guid;
         private string title = "";
+        private websitebase _websitebase = null;
         #endregion
         #region 属性
         /// <summary>
@@ -23,6 +24,11 @@ namespace HR.Share.PublicShare.BaseClass.AbstractClass
         /// 标题
         /// </summary>
         public string Title { get => title; set => title = value; }
+        /// <summary>
+        /// 子类的数据源
+        /// </summary>
+        public websitebase Websitebase { get => _websitebase; set => _websitebase = value; }
+
         #endregion
 
         #region 私有方法
@@ -33,11 +39,6 @@ namespace HR.Share.PublicShare.BaseClass.AbstractClass
         #region 派生类需要重写的函数
         protected abstract System.Windows.Controls.Control GetControl();
         public abstract bool CloseWindows();
-        /// <summary>
-        /// 子类的数据源
-        /// </summary>
-        /// <returns></returns>
-        public abstract websitebase GetWebsitebase();
 
         #endregion
 
@@ -49,11 +50,7 @@ namespace HR.Share.PublicShare.BaseClass.AbstractClass
                 return GetControl();
             }
         }
+
         #endregion
-    }
-
-    public class BaseClass : UserControl
-    {
-
     }
 }

@@ -24,7 +24,7 @@
                     </Grid.ColumnDefinitions>
                     <Rectangle Name="ep" Grid.Row="1" Grid.Column="1" Width="auto" Height="auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Stroke="LightBlue" RadiusX="10" RadiusY="10">
                         <Rectangle.Fill>
-                            <ImageBrush x:Name="coles" ImageSource="pack://application:,,,/HR.Share.PublicShare;component/Resources/taobao.jpg"/>
+                            <ImageBrush x:Name="coles" ImageSource="{Binding imageUrl,Mode=OneWay}"/>
                         </Rectangle.Fill>
                     </Rectangle>
                     <TextBlock Name="et" Text="{TemplateBinding Content}" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12"/>

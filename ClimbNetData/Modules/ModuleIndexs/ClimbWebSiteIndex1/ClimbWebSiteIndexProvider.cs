@@ -41,10 +41,5 @@ namespace ClimbWebSiteIndex1
         {
             return this._content;
         }
-
-        public override websitebase GetWebsitebase()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
