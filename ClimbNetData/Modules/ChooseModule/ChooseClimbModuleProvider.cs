@@ -36,18 +36,18 @@ namespace ChooseModule
             try
             {
                 #region 生成模板类型
-                List<GlobalStatic.WebSiteType> webSiteTypes = MainBaseMethod.foreachEnum<GlobalStatic.WebSiteType>();
-                this._content.ModuleTypes.Children.Clear();
-                foreach (GlobalStatic.WebSiteType item in webSiteTypes)
-                {
-                    Label label = new Label();
-                    label.Content = MainBaseMethod.GetEnumDescription(item);
-                    label.Margin = new System.Windows.Thickness(5, 0, 0, 0);
-                    label.Padding = new System.Windows.Thickness(5, 0, 5, 0);
-                    label.HorizontalContentAlignment = System.Windows.HorizontalAlignment.Center;
-                    label.VerticalAlignment = System.Windows.VerticalAlignment.Center;
-                    this._content.ModuleTypes.Children.Add(label);
-                }
+                //List<GlobalStatic.WebSiteType> webSiteTypes = MainBaseMethod.foreachEnum<GlobalStatic.WebSiteType>();
+                //this._content.ModuleTypes.Children.Clear();
+                //foreach (GlobalStatic.WebSiteType item in webSiteTypes)
+                //{
+                //    Label label = new Label();
+                //    label.Content = MainBaseMethod.GetEnumDescription(item);
+                //    label.Margin = new System.Windows.Thickness(5, 0, 0, 0);
+                //    label.Padding = new System.Windows.Thickness(5, 0, 5, 0);
+                //    label.HorizontalContentAlignment = System.Windows.HorizontalAlignment.Center;
+                //    label.VerticalAlignment = System.Windows.VerticalAlignment.Center;
+                //    this._content.ModuleTypes.Children.Add(label);
+                //}
                 #endregion
 
             }

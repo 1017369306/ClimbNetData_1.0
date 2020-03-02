@@ -11,7 +11,30 @@ namespace HR.Share.PublicShare.StaticBase.ClimbData
     /// </summary>
     public static class GlobalStatic
     {
+        #region 对象
+        public static Dictionary<int, string> WebSiteModuleDic = new Dictionary<int, string>();
 
+        #endregion
+
+        #region 公共方法
+        /// <summary>
+        /// 静态类初始化
+        /// </summary>
+        public static void Init()
+        {
+            try
+            {
+                //WebSiteModuleDic.Add();
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+        #endregion
+
+
+        #region enum
         /// <summary>
         /// 模板类型枚举
         /// </summary>
@@ -32,8 +55,10 @@ namespace HR.Share.PublicShare.StaticBase.ClimbData
         public enum SortType
         {
             Hot,
-            Time
+            CreateTime
         }
+        #endregion
+
 
     }
 }

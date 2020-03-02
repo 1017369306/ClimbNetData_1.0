@@ -70,6 +70,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseClass\AbstractClass\ClimbWebSiteIndexBaseClass.cs" />
     <Compile Include="BaseClass\CustomProperty.cs" />
     <Compile Include="BaseClass\UavData.cs" />
     <Compile Include="BindingData\WebSitesData.cs" />
@@ -80,6 +81,9 @@
     <Compile Include="CustomUserControl\WpfUserControl\ClimbWebSite.xaml.cs">
       <DependentUpon>ClimbWebSite.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CustomUserControl\WpfUserControl\ClimbWebSiteIndex1.xaml.cs">
+      <DependentUpon>ClimbWebSiteIndex1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CustomUserControl\WpfUserControl\ClimbWebSites.xaml.cs">
       <DependentUpon>ClimbWebSites.xaml</DependentUpon>
     </Compile>
@@ -89,15 +93,18 @@
     <Compile Include="CustomUserControl\WpfUserControl\SearchTextBox.xaml.cs">
       <DependentUpon>SearchTextBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DBOperation\BLL\websitebase.cs" />
-    <Compile Include="DBOperation\BLL\websitemodule.cs" />
-    <Compile Include="DBOperation\DALFactory\DataAccess.cs" />
-    <Compile Include="DBOperation\IDAL\Iwebsitebase.cs" />
-    <Compile Include="DBOperation\IDAL\Iwebsitemodule.cs" />
-    <Compile Include="DBOperation\Model\websitebase.cs" />
-    <Compile Include="DBOperation\Model\websitemodule.cs" />
-    <Compile Include="DBOperation\MySQLDAL\websitebase.cs" />
-    <Compile Include="DBOperation\MySQLDAL\websitemodule.cs" />
+    <Compile Include="CustomUserControl\WpfUserControl\WebSiteTypeAndSort.xaml.cs">
+      <DependentUpon>WebSiteTypeAndSort.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DBOperation\ClimbData\BLL\websitebase.cs" />
+    <Compile Include="DBOperation\ClimbData\BLL\websitemodule.cs" />
+    <Compile Include="DBOperation\ClimbData\DALFactory\DataAccess.cs" />
+    <Compile Include="DBOperation\ClimbData\IDAL\Iwebsitebase.cs" />
+    <Compile Include="DBOperation\ClimbData\IDAL\Iwebsitemodule.cs" />
+    <Compile Include="DBOperation\ClimbData\Model\websitebase.cs" />
+    <Compile Include="DBOperation\ClimbData\Model\websitemodule.cs" />
+    <Compile Include="DBOperation\ClimbData\MySQLDAL\websitebase.cs" />
+    <Compile Include="DBOperation\ClimbData\MySQLDAL\websitemodule.cs" />
     <Compile Include="GlobalClass.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="IModuleInterface.cs" />
@@ -148,6 +155,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CustomUserControl\WpfUserControl\ClimbWebSiteIndex1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CustomUserControl\WpfUserControl\ClimbWebSites.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -157,6 +168,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CustomUserControl\WpfUserControl\SearchTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomUserControl\WpfUserControl\WebSiteTypeAndSort.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -33,6 +33,7 @@ namespace Maticsoft.Model
 		private string _content;
 		private string _imageurl;
 		private int? _modulecount;
+        private int? _index;
 		/// <summary>
 		/// 
 		/// </summary>
@@ -89,8 +90,16 @@ namespace Maticsoft.Model
 			set{ _modulecount=value;}
 			get{return _modulecount;}
 		}
-		#endregion Model
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? index
+        {
+            set { _index = value; }
+            get { return _index; }
+        }
+        #endregion Model
 
-	}
+    }
 }
 

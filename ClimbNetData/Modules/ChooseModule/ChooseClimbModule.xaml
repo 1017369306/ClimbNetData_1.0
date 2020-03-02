@@ -20,36 +20,12 @@
                 <Label Content="/" Tag="false" Margin="5,0,0,0" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                 <Label Content="京东" Margin="5,0,0,0" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                 <Label Content="/" Tag="false" Margin="5,0,0,0" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                
-            </WrapPanel>
-        </Grid>
-        <Grid Grid.Row="1">
-            <WrapPanel x:Name="ModuleType" VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="auto">
-                <Label Content="模板类型：" Tag="false" Margin="5,0,10,0" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                <WrapPanel VerticalAlignment="Center" x:Name="ModuleTypes">
-                    <!--<Label Content="热门" Tag="true" Margin="5,0,0,0" Padding="5,0,5,0" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                    <Label Content="本地生活" Tag="true" Margin="5,0,0,0" Padding="5,0,5,0" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                    <Label Content="电子商务" Tag="true" Margin="5,0,0,0" Padding="5,0,5,0" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>-->
-                </WrapPanel>
-            </WrapPanel>
-        </Grid>
-        <Grid Grid.Row="2">
-            <WrapPanel x:Name="ModuleIndex" VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="auto">
-                <Label Content="模板排序：" Tag="false" Margin="5,0,10,0" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                <Border BorderThickness="0.5" BorderBrush="Black" Margin="5,0,0,0" HorizontalAlignment="Stretch">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="1*"/>
-                        </Grid.ColumnDefinitions>
-                        <Label Content="热门" Grid.Column="0" Tag="true" Padding="5,0,5,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                        <Label Content="上线时间" Grid.Column="1" Tag="true" Padding="5,0,5,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                    </Grid>
-                </Border>
-                
-            </WrapPanel>
-        </Grid>
 
+            </WrapPanel>
+        </Grid>
+        <Grid Grid.Row="1" Grid.RowSpan="2">
+            <WpfUserControl:WebSiteTypeAndSort />
+        </Grid>
         <Grid Grid.Row="3" Margin="5,10,5,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="5*"/>
