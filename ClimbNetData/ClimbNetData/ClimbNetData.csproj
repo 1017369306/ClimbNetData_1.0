@@ -121,6 +121,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Modules\ModuleIndexs\ClimbWebSiteIndex1\ClimbWebSiteIndex1.csproj">
+      <Project>{32c5b924-1585-425a-86c9-49e9890cc0eb}</Project>
+      <Name>ClimbWebSiteIndex1</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PublicShare\HR.Share.PublicShare\HR.Share.PublicShare.csproj">
       <Project>{5DF8E10A-ECAC-4835-8962-A83530400421}</Project>
       <Name>HR.Share.PublicShare</Name>

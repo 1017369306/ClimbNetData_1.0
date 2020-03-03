@@ -223,7 +223,7 @@ namespace Maticsoft.MySQLDAL
 				}
 				if(row["imageUrl"]!=null)
 				{
-					model.imageUrl=row["imageUrl"].ToString();
+					model.imageUrl = new Uri(row["imageUrl"].ToString());
 				}
 				if(row["moduleCount"]!=null && row["moduleCount"].ToString()!="")
 				{

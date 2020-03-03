@@ -69,7 +69,7 @@ namespace HR.Share.PublicShare.CustomUserControl.WpfUserControl
 
         private void Label_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            throw new NotImplementedException();
+
         }
     }
 }

@@ -510,6 +510,28 @@ namespace HR.Share.PublicShare
                 return null;
             }
         }
+
+        /// <summary>
+        /// 根据UserControlBaseClass子类获取LayoutDocument面板，用于添加到页面上
+        /// </summary>
+        /// <param name="userControl"></param>
+        /// <returns></returns>
+        public static LayoutDocument GetLayoutDocument(ClimbWebSiteIndexBaseClass userControl)
+        {
+            try
+            {
+                LayoutDocument ld = new LayoutDocument();
+                ld.Title = userControl.Title;
+                ld.Content = userControl.Control;
+                ld.IsActive = true;
+                return ld;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
         #endregion
 
     }

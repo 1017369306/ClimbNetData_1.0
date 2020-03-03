@@ -1,4 +1,5 @@
 ﻿using ClimbNetData.Windows;
+using ClimbWebSiteIndex1;
 using HR.Share.PublicShare;
 using HR.Share.PublicShare.BaseClass.AbstractClass;
 using System;
@@ -50,6 +51,15 @@ namespace ClimbNetData
                         MessageBox.Show("首页初始化失败！", "初始化", MessageBoxButton.OK, MessageBoxImage.Error);
                         break;
                     }
+                }
+                LayoutDocument ldTemp = MainBaseMethod.GetLayoutDocument(new ClimbWebSiteIndexProvider());
+                if (ldTemp != null)
+                {
+                    DocPane1.Children.Add(ldTemp);
+                }
+                else
+                {
+                    MessageBox.Show("首页初始化失败！", "初始化", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             catch (Exception ex)

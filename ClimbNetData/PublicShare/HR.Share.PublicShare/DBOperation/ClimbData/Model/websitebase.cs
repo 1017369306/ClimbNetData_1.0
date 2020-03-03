@@ -31,7 +31,7 @@ namespace Maticsoft.Model
 		private DateTime? _updatetime;
 		private string _websitetype;
 		private string _content;
-		private string _imageurl;
+		private Uri _imageurl;
 		private int? _modulecount;
         private int? _index;
 		/// <summary>
@@ -77,7 +77,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 
 		/// </summary>
-		public string imageUrl
+		public Uri imageUrl
 		{
 			set{ _imageurl=value;}
 			get{return _imageurl;}

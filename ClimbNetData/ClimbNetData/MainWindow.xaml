@@ -3,8 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock"
         xmlns:local="clr-namespace:ClimbNetData"
+        xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock"
         mc:Ignorable="d"
         Title="墨鱼" WindowStyle="ThreeDBorderWindow" ResizeMode="CanResizeWithGrip" Height="600" Width="900" MinHeight="600" MinWidth="900">
 
@@ -152,7 +152,7 @@
         </StackPanel>
 
         <Grid Grid.Column="1" x:Name="MainUserControl">
-            <xcad:DockingManager x:Name="DockingManager" AllowMixedOrientation="True" BorderBrush="Black" BorderThickness="0"
+            <xcad:DockingManager x:Name="DockingManager" BorderBrush="Black" BorderThickness="0"
                                  Background="#FFE0E4E2">
                 <!--<xcad:DockingManager.DocumentHeaderTemplate>
                     <DataTemplate>
@@ -164,6 +164,7 @@
                         </Border>
                     </DataTemplate>
                 </xcad:DockingManager.DocumentHeaderTemplate>-->
+                
                 <xcad:LayoutRoot x:Name="LayoutRoot">
                     <xcad:LayoutPanel Orientation="Horizontal">
                         <!--工作区-->
