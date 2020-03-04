@@ -1,5 +1,5 @@
-﻿using ClimbNetData.Windows;
-using ClimbWebSiteIndex1;
+﻿using ChooseModule;
+using ClimbNetData.Windows;
 using HR.Share.PublicShare;
 using HR.Share.PublicShare.BaseClass.AbstractClass;
 using System;
@@ -52,7 +52,7 @@ namespace ClimbNetData
                         break;
                     }
                 }
-                LayoutDocument ldTemp = MainBaseMethod.GetLayoutDocument(new ClimbWebSiteIndexProvider());
+                LayoutDocument ldTemp = MainBaseMethod.GetLayoutDocument(new ChooseClimbModuleProvider());
                 if (ldTemp != null)
                 {
                     DocPane1.Children.Add(ldTemp);

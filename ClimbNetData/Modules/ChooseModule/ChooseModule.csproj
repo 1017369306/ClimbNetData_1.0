@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\..\bin\Modules\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -52,20 +56,22 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="ChooseClimbModule.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\PublicShare\HR.Share.PublicShare\HR.Share.PublicShare.csproj">
       <Project>{5df8e10a-ecac-4835-8962-a83530400421}</Project>
       <Name>HR.Share.PublicShare</Name>
+      <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\..\PublicShare\log4net\log4net.csproj">
-      <Project>{06c3ec45-8a4a-4428-9753-84f113d70c5d}</Project>
-      <Name>log4net</Name>
+    <ProjectReference Include="..\..\PublicShare\Log4Lib\Log4Lib.csproj">
+      <Project>{50528f9f-4d38-4645-aea7-f79a9e602a74}</Project>
+      <Name>Log4Lib</Name>
+      <Private>False</Private>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="ChooseClimbModule.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ClimbNetData"
         xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock"
         mc:Ignorable="d"
-        Title="墨鱼" WindowStyle="ThreeDBorderWindow" ResizeMode="CanResizeWithGrip" Height="600" Width="900" MinHeight="600" MinWidth="900">
+        Title="墨鱼" WindowStyle="ThreeDBorderWindow" ResizeMode="CanResizeWithGrip" Height="600" Width="900" MinHeight="600" MinWidth="900" Icon="CuttleFish.ico">
 
     <Window.Resources>
         <SolidColorBrush x:Key="MenuBtnColor" Color="#FF0C35EC"/>

@@ -34,6 +34,7 @@
     <Reference Include="log4net, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Maticsoft.Common">
       <HintPath>..\..\..\bin\dll\Maticsoft.Common.dll</HintPath>
@@ -123,6 +124,7 @@
     <ProjectReference Include="..\Log4Lib\Log4Lib.csproj">
       <Project>{50528f9f-4d38-4645-aea7-f79a9e602a74}</Project>
       <Name>Log4Lib</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -130,6 +132,7 @@
     <Folder Include="WpfForm\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\Ico\CuttleFish.ico" />
     <Content Include="Resources\jd.jpg" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

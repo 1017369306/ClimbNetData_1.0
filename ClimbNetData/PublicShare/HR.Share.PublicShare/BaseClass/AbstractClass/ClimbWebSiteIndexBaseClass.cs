@@ -38,7 +38,7 @@ namespace HR.Share.PublicShare.BaseClass.AbstractClass
         #endregion
         #region 派生类需要重写的函数
         protected abstract System.Windows.Controls.Control GetControl();
-        public abstract bool CloseWindows();
+        public abstract void CloseWindows();
 
         #endregion
 

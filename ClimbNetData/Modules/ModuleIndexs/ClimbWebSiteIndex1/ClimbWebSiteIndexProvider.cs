@@ -46,7 +46,7 @@ namespace ClimbWebSiteIndex1
             }
         }
 
-        public override bool CloseWindows()
+        public override void CloseWindows()
         {
             try
             {
@@ -54,11 +54,10 @@ namespace ClimbWebSiteIndex1
                 {
                     //System.Windows.Window.GetWindow(_content).Close();
                 }
-                return true;
             }
             catch (Exception ex)
             {
-                return false;
+
             }
         }
 

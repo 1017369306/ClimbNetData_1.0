@@ -1,6 +1,8 @@
 ﻿using HR.Share.PublicShare;
+using HR.Share.PublicShare.BaseClass.AbstractClass;
 using HR.Share.PublicShare.BindingData;
 using HR.Share.PublicShare.StaticBase.ClimbData;
+using Log4Lib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,23 +12,25 @@ using System.Windows.Controls;
 
 namespace ChooseModule
 {
-    public class ChooseClimbModuleProvider
+    public class ChooseClimbModuleProvider: ClimbWebSiteIndexBaseClass
     {
         #region 属性
         ChooseClimbModule _content = null;
         private WebSitesData _webSitesData = null;
-        #endregion
-
-        public ChooseClimbModuleProvider()
-        {
-            _content = new ChooseClimbModule(this);
-            Load();
-        }
 
         /// <summary>
         /// 模板数据关联类(当前模板和它的父模板)，再添加一个index字段，按顺便动态加载对应的模板（0为网站，1为模板，2为模板介绍，3为配置等等）
         /// </summary>
         public WebSitesData WebSitesData { get => _webSitesData; set => _webSitesData = value; }
+        #endregion
+
+        #region 初始化
+        public ChooseClimbModuleProvider()
+        {
+            _content = new ChooseClimbModule(this);
+            this.Title = "选择模板";
+            Load();
+        }  
 
         /// <summary>
         /// 动态初始化模板信息
@@ -56,5 +60,26 @@ namespace ChooseModule
                 Log4Lib.LogHelper.WriteLog(ex.Message, ex);
             }
         }
+        #endregion
+
+        #region 实现抽象函数
+        protected override Control GetControl()
+        {
+            return this._content;
+        }
+
+        public override void CloseWindows()
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                LogHelper.WriteLog(ex.Message, ex);
+            }
+        }
+        #endregion
+
     }
 }

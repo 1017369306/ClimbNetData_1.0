@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\bin\Module\ModuleIndexs\</OutputPath>
+    <OutputPath>..\..\..\..\bin\Modules\ModuleIndexs\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -61,6 +61,7 @@
     <ProjectReference Include="..\..\..\PublicShare\HR.Share.PublicShare\HR.Share.PublicShare.csproj">
       <Project>{5df8e10a-ecac-4835-8962-a83530400421}</Project>
       <Name>HR.Share.PublicShare</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

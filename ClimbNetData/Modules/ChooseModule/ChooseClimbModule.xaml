@@ -10,8 +10,6 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
@@ -23,94 +21,9 @@
 
             </WrapPanel>
         </Grid>
-        <Grid Grid.Row="1" Grid.RowSpan="2">
-            <WpfUserControl:WebSiteTypeAndSort />
+        <Grid Grid.Row="1">
+            <WpfUserControl:ClimbWebSiteIndex1></WpfUserControl:ClimbWebSiteIndex1>
         </Grid>
-        <Grid Grid.Row="3" Margin="5,10,5,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="5*"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
 
-            <Grid Grid.Column="0">
-                <Grid.RowDefinitions>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="1*"/>
-                </Grid.ColumnDefinitions>
-                    <Button x:Name="BtnJd" Grid.Row="0" Grid.Column="0" Content="京东" Cursor="Hand" Margin="10,0,0,0">
-                        <!--格式-->
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Grid x:Name="grid" VerticalAlignment="Top" Margin="0">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="43"/>
-                                        <RowDefinition Height="18"/>
-                                    </Grid.RowDefinitions>
-                                    <Ellipse Name="ep" Width="36" Height="36" VerticalAlignment="Top" Stroke="LightBlue">
-                                        <Ellipse.Fill>
-                                            <!--../../PublicShare/HR.Share.PublicShare/Resoures/taobao.jpg-->
-                                        <ImageBrush x:Name="coles" ImageSource="pack://application:,,,/HR.Share.PublicShare;component/Resources/search.png"/>
-                                        </Ellipse.Fill>
-                                    </Ellipse>
-                                    <TextBlock Name="et" Text="{TemplateBinding Content}" Grid.Row="1" HorizontalAlignment="Center" FontSize="11"/>
-                                </Grid>
-                                <ControlTemplate.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="true">
-                                        <Setter TargetName="ep" Property="Width" Value="40"/>
-                                        <Setter TargetName="ep" Property="Height" Value="40"/>
-                                        <Setter TargetName="et" Property="FontSize" Value="12"/>
-                                    </Trigger>
-                                </ControlTemplate.Triggers>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
-                <Button Grid.Row="0" Grid.Column="1" Content="淘宝" Cursor="Hand">
-                    <!--格式-->
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Grid x:Name="grid" VerticalAlignment="Top" Margin="0">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="43"/>
-                                    <RowDefinition Height="18"/>
-                                </Grid.RowDefinitions>
-                                <Ellipse Name="ep" Width="36" Height="36" VerticalAlignment="Top" Stroke="LightBlue">
-                                    <Ellipse.Fill>
-                                        <!--../../PublicShare/HR.Share.PublicShare/Resoures/taobao.jpg-->
-                                        <ImageBrush x:Name="coles" ImageSource="pack://application:,,,/HR.Share.PublicShare;component/Resources/taobao.jpg"/>
-                                    </Ellipse.Fill>
-                                </Ellipse>
-                                <TextBlock Name="et" Text="{TemplateBinding Content}" Grid.Row="1" HorizontalAlignment="Center" FontSize="11"/>
-                            </Grid>
-                            <ControlTemplate.Triggers>
-                                <Trigger Property="IsMouseOver" Value="true">
-                                    <Setter TargetName="ep" Property="Width" Value="40"/>
-                                    <Setter TargetName="ep" Property="Height" Value="40"/>
-                                    <Setter TargetName="et" Property="FontSize" Value="12"/>
-                                </Trigger>
-                            </ControlTemplate.Triggers>
-                        </ControlTemplate>
-                    </Button.Template>
-                </Button>
-            </Grid>
-
-            <Grid Grid.Column="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="2*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <WpfUserControl:NewClimbModule Grid.Row="0"></WpfUserControl:NewClimbModule>
-            </Grid>
-            
-        </Grid>
-        
     </Grid>
 </UserControl>

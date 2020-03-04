@@ -51,9 +51,11 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="Xceed.Wpf.AvalonDock, Version=4.0.20076.12200, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL">
       <HintPath>..\packages\Xceed.Wpf.AvalonDock.4.0.20076.12200\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Xceed.Wpf.Toolkit, Version=4.0.20076.12200, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL">
       <HintPath>..\packages\Xceed.Wpf.Toolkit.4.0.20076.12200\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+      <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -121,18 +123,23 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Modules\ModuleIndexs\ClimbWebSiteIndex1\ClimbWebSiteIndex1.csproj">
-      <Project>{32c5b924-1585-425a-86c9-49e9890cc0eb}</Project>
-      <Name>ClimbWebSiteIndex1</Name>
+    <ProjectReference Include="..\Modules\ChooseModule\ChooseModule.csproj">
+      <Project>{94261d68-8816-4159-a5b8-623c8ccb52b4}</Project>
+      <Name>ChooseModule</Name>
+      <Private>True</Private>
     </ProjectReference>
     <ProjectReference Include="..\PublicShare\HR.Share.PublicShare\HR.Share.PublicShare.csproj">
       <Project>{5DF8E10A-ECAC-4835-8962-A83530400421}</Project>
       <Name>HR.Share.PublicShare</Name>
+      <Private>True</Private>
     </ProjectReference>
     <ProjectReference Include="..\PublicShare\PublicResources\PublicResources.csproj">
       <Project>{6ad10c02-6009-4ca5-b52b-4036a254f9ff}</Project>
       <Name>PublicResources</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="CuttleFish.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

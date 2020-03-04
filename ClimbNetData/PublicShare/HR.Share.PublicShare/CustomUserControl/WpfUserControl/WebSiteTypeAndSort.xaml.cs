@@ -43,6 +43,7 @@ namespace HR.Share.PublicShare.CustomUserControl.WpfUserControl
                     label.VerticalAlignment = System.Windows.VerticalAlignment.Center;
                     label.PreviewMouseLeftButtonDown += Label_PreviewMouseLeftButtonDown;
                     this.ModuleTypes.Children.Add(label);
+                    //Style style = (Style)this.FindResource("样式名字");//查找资源词典
                 }
                 #endregion
 
