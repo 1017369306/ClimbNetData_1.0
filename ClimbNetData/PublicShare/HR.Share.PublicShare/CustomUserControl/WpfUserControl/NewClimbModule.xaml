@@ -12,8 +12,8 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Label Content="最新模板上线" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" FontSize="16" Height="40" Foreground="Black"/>
-        <Grid Grid.Row="1">
-            <Grid.RowDefinitions>
+        <Grid Grid.Row="1" x:Name="PromoteList" Loaded="PromoteList_Loaded">
+            <!--<Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -24,7 +24,7 @@
             </Grid.RowDefinitions>
             <WrapPanel Grid.Row="0">
                 <Label Content="1" Foreground="#FF124897" Margin="0,0,10,0" />
-                <Label Content="人民网-滚动" Grid.Row="0" VerticalContentAlignment="Center" FontSize="12" Foreground="Black"/>
+                <Label Content="人民网-滚动" VerticalContentAlignment="Center" FontSize="12" Foreground="Black"/>
             </WrapPanel>
             <WrapPanel Grid.Row="1">
                 <Label Content="2" Foreground="#FF124897" Margin="0,0,10,0" />
@@ -53,7 +53,7 @@
             <WrapPanel Grid.Row="7">
                 <Label Content="8" Foreground="#FF124897" Margin="0,0,10,0" />
                 <Label Content="人民网-滚动" Grid.Row="0" VerticalContentAlignment="Center" FontSize="12" Foreground="Black"/>
-            </WrapPanel>
+            </WrapPanel>-->
         </Grid>
     </Grid>
 </UserControl>

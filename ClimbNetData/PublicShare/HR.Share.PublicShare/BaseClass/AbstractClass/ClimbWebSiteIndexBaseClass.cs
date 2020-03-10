@@ -1,4 +1,5 @@
-﻿using Maticsoft.Model;
+﻿using HR.Share.PublicShare.ExtendsClass;
+using Maticsoft.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Windows.Controls;
 
 namespace HR.Share.PublicShare.BaseClass.AbstractClass
 {
-    public abstract class ClimbWebSiteIndexBaseClass
+    public abstract class ClimbWebSiteIndexBaseClass: DisposePatternSample
     {
         #region 变量
         private string _guid;
@@ -39,7 +40,6 @@ namespace HR.Share.PublicShare.BaseClass.AbstractClass
         #region 派生类需要重写的函数
         protected abstract System.Windows.Controls.Control GetControl();
         public abstract void CloseWindows();
-
         #endregion
 
         #region 重写接口

@@ -82,12 +82,6 @@
     <Compile Include="CustomUserControl\WpfUserControl\ClimbWebSite.xaml.cs">
       <DependentUpon>ClimbWebSite.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CustomUserControl\WpfUserControl\ClimbWebSiteIndex1.xaml.cs">
-      <DependentUpon>ClimbWebSiteIndex1.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="CustomUserControl\WpfUserControl\ClimbWebSites.xaml.cs">
-      <DependentUpon>ClimbWebSites.xaml</DependentUpon>
-    </Compile>
     <Compile Include="CustomUserControl\WpfUserControl\NewClimbModule.xaml.cs">
       <DependentUpon>NewClimbModule.xaml</DependentUpon>
     </Compile>
@@ -106,6 +100,7 @@
     <Compile Include="DBOperation\ClimbData\Model\websitemodule.cs" />
     <Compile Include="DBOperation\ClimbData\MySQLDAL\websitebase.cs" />
     <Compile Include="DBOperation\ClimbData\MySQLDAL\websitemodule.cs" />
+    <Compile Include="ExtendsClass\DisposePatternSample.cs" />
     <Compile Include="GlobalClass.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="IModuleInterface.cs" />
@@ -155,14 +150,6 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="CustomUserControl\WpfUserControl\ClimbWebSite.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="CustomUserControl\WpfUserControl\ClimbWebSiteIndex1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="CustomUserControl\WpfUserControl\ClimbWebSites.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

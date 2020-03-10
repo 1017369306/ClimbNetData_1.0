@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,12 +41,21 @@ namespace HR.Share.PublicShare.StaticBase.ClimbData
         /// </summary>
         public enum WebSiteType
         {
+            [DescriptionAttribute("热门")]
+            Hot,
+            [DescriptionAttribute("本地生活")]
             LocalLife,
+            [DescriptionAttribute("电子商务")]
             E_Commerce,
+            [DescriptionAttribute("媒体阅读")]
             Media,
+            [DescriptionAttribute("搜索引擎")]
             SearchEngine,
+            [DescriptionAttribute("社交平台")]
             SocialPlatform,
+            [DescriptionAttribute("科研教育")]
             Scientific,
+            [DescriptionAttribute("其他")]
             Other
         }
 
@@ -54,7 +64,9 @@ namespace HR.Share.PublicShare.StaticBase.ClimbData
         /// </summary>
         public enum SortType
         {
+            [DescriptionAttribute("热门")]
             Hot,
+            [DescriptionAttribute("上线时间")]
             CreateTime
         }
         #endregion

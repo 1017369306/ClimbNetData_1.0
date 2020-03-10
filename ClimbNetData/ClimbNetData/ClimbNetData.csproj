@@ -35,8 +35,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -51,11 +56,11 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="Xceed.Wpf.AvalonDock, Version=4.0.20076.12200, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL">
       <HintPath>..\packages\Xceed.Wpf.AvalonDock.4.0.20076.12200\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Xceed.Wpf.Toolkit, Version=4.0.20076.12200, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL">
       <HintPath>..\packages\Xceed.Wpf.Toolkit.4.0.20076.12200\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -132,6 +137,10 @@
       <Project>{5DF8E10A-ECAC-4835-8962-A83530400421}</Project>
       <Name>HR.Share.PublicShare</Name>
       <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\PublicShare\Log4Lib\Log4Lib.csproj">
+      <Project>{50528f9f-4d38-4645-aea7-f79a9e602a74}</Project>
+      <Name>Log4Lib</Name>
     </ProjectReference>
     <ProjectReference Include="..\PublicShare\PublicResources\PublicResources.csproj">
       <Project>{6ad10c02-6009-4ca5-b52b-4036a254f9ff}</Project>

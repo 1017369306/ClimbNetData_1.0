@@ -42,5 +42,10 @@ namespace ClimbNetData.Windows
         {
             return this._content;
         }
+
+        protected override void Dispose(bool isDisposing)
+        {
+            base.Dispose(isDisposing);
+        }
     }
 }

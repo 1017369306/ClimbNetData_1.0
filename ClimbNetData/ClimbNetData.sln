@@ -25,7 +25,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChooseModule", "Modules\Cho
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ModuleIndexs", "ModuleIndexs", "{751225DF-A6D6-4008-8196-A776A1434CAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClimbWebSiteIndex1", "Modules\ModuleIndexs\ClimbWebSiteIndex1\ClimbWebSiteIndex1.csproj", "{32C5B924-1585-425A-86C9-49E9890CC0EB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClimbWebSiteIndexs", "Modules\ModuleIndexs\ClimbWebSiteIndex1\ClimbWebSiteIndexs.csproj", "{32C5B924-1585-425A-86C9-49E9890CC0EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

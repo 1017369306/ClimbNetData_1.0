@@ -7,18 +7,37 @@
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Foreground" Value="#FF000000"/>
+            <Setter Property="Background" Value="#00000000"/>
         </Style.Setters>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Trigger.Setters>
-                    <Setter Property="Background" Value="Blue"/>
+                    <Setter Property="Background" Value="#FF4A6BD8"/>
                     <Setter Property="Opacity" Value="0.5"/>
                 </Trigger.Setters>
             </Trigger>
         </Style.Triggers>
     </Style>
-    
+
+    <Style x:Key="LabelStyle2" TargetType="Label">
+        <Style.Setters>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="#FF000000"/>
+            <Setter Property="Background" Value="#00000000"/>
+        </Style.Setters>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Trigger.Setters>
+                    <Setter Property="Foreground" Value="#FF4A6BD8"/>
+                    <Setter Property="Opacity" Value="0.5"/>
+                </Trigger.Setters>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
     <Style x:Key="ceshi" TargetType="Button">
         <Style.Setters>
             <Setter Property="FontSize" Value="24"/>

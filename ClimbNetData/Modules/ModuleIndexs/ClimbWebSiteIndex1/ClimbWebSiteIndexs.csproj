@@ -7,8 +7,8 @@
     <ProjectGuid>{32C5B924-1585-425A-86C9-49E9890CC0EB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ClimbWebSiteIndex1</RootNamespace>
-    <AssemblyName>ClimbWebSiteIndex1</AssemblyName>
+    <RootNamespace>ClimbWebSiteIndexs</RootNamespace>
+    <AssemblyName>ClimbWebSiteIndexs</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -45,17 +48,10 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClimbWebSiteIndex.xaml.cs">
-      <DependentUpon>ClimbWebSiteIndex.xaml</DependentUpon>
+    <Compile Include="ClimbWebSiteIndex1.xaml.cs">
+      <DependentUpon>ClimbWebSiteIndex1.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ClimbWebSiteIndexProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="ClimbWebSiteIndex.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\PublicShare\HR.Share.PublicShare\HR.Share.PublicShare.csproj">
@@ -63,9 +59,23 @@
       <Name>HR.Share.PublicShare</Name>
       <Private>False</Private>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\PublicShare\Log4Lib\Log4Lib.csproj">
+      <Project>{50528F9F-4D38-4645-AEA7-F79A9E602A74}</Project>
+      <Name>Log4Lib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\PublicShare\PublicResources\PublicResources.csproj">
+      <Project>{6ad10c02-6009-4ca5-b52b-4036a254f9ff}</Project>
+      <Name>PublicResources</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="ClimbWebSiteIndex1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

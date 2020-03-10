@@ -72,12 +72,20 @@ namespace ChooseModule
         {
             try
             {
-
+                base.Dispose();
             }
             catch (Exception ex)
             {
                 LogHelper.WriteLog(ex.Message, ex);
             }
+        }
+        /// <summary>
+        /// 子类重写时只需清理非托管资源即可
+        /// </summary>
+        /// <param name="isDisposing"></param>
+        protected override void Dispose(bool isDisposing)
+        {
+            //base.Dispose(isDisposing);
         }
         #endregion
 

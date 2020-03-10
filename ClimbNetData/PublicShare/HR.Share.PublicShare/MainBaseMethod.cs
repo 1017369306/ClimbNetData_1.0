@@ -12,6 +12,7 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Threading;
 using Xceed.Wpf.AvalonDock.Layout;
 
 namespace HR.Share.PublicShare
@@ -33,11 +34,92 @@ namespace HR.Share.PublicShare
         public const string JdGoodsCommentJsUrl = "https://club.jd.com/comment/productPageComments.action?callback=fetchJSON_comment98vv2901&productId=100004508929&score=0&sortType=5&page=0&pageSize=10&isShadowSku=0&fold=1";
         #endregion
 
+        #region 变量
+        private static DispatcherTimer timer;
+        #endregion
+
         #region 枚举
         public enum JdCommentJsType
         {
             club,
             sclub
+        }
+        #endregion
+
+        #region delegate
+        public delegate void PushTimerDateTime(DateTime dateTime);
+        public static PushTimerDateTime pushTimerDateTime;
+
+        private static void OnPushTimerDateTime(DateTime dateTime)
+        {
+            if (pushTimerDateTime != null)
+            {
+                pushTimerDateTime(dateTime);
+            }
+        }
+
+
+        #endregion
+
+        #region static method
+        /// <summary>
+        /// 根据字符串获取brush颜色对象
+        /// </summary>
+        /// <param name="colorStr"></param>
+        /// <returns></returns>
+        public static System.Windows.Media.Brush GetBrush(string colorStr)
+        {
+            System.Windows.Media.Brush brush = new System.Windows.Media.SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#FF000000"));
+            try
+            {
+                brush = new System.Windows.Media.SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString(colorStr));
+            }
+            catch (Exception ex)
+            {
+                Log4Lib.LogHelper.WriteLog(ex.Message, ex);
+                return brush;
+            }
+            return brush;
+        }
+        /// <summary>
+        /// 初始化timer
+        /// </summary>
+        public static void InitTimer()
+        {
+            try
+            {
+                timer = new DispatcherTimer(DispatcherPriority.Normal);
+                timer.Interval = TimeSpan.FromSeconds(1);
+                timer.Tick += Timer_Tick;
+                timer.Start();
+            }
+            catch (Exception ex)
+            {
+                Log4Lib.LogHelper.WriteLog(ex.Message, ex);
+            }
+        }
+        public static void StopTimer()
+        {
+            try
+            {
+                timer.Stop();
+            }
+            catch (Exception ex)
+            {
+                Log4Lib.LogHelper.WriteLog(ex.Message, ex);
+            }
+        }
+
+        private static void Timer_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                OnPushTimerDateTime(DateTime.Now);
+            }
+            catch (Exception ex)
+            {
+                Log4Lib.LogHelper.WriteLog(ex.Message, ex);
+            }
         }
         #endregion
 

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ClimbNetData"
         xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock"
         mc:Ignorable="d"
-        Title="墨鱼" WindowStyle="ThreeDBorderWindow" ResizeMode="CanResizeWithGrip" Height="600" Width="900" MinHeight="600" MinWidth="900" Icon="CuttleFish.ico">
+        Title="墨鱼" WindowStyle="ThreeDBorderWindow" ResizeMode="CanResizeWithGrip" Height="600" Width="900" MinHeight="600" MinWidth="900" Icon="CuttleFish.ico" Loaded="Window_Loaded" Closing="Window_Closing">
 
     <Window.Resources>
         <SolidColorBrush x:Key="MenuBtnColor" Color="#FF0C35EC"/>
@@ -65,16 +65,17 @@
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="6*"/>
         </Grid.ColumnDefinitions>
+
         <StackPanel Grid.Column="0" Background="#FF302B6A">
-            <Expander Header="墨鱼" Style="{StaticResource Expander}" IsExpanded="True" HorizontalContentAlignment="Stretch" ExpandDirection="Right" Foreground="White" >
+            <Expander Header="墨鱼" Style="{StaticResource Expander}" IsExpanded="True" HorizontalContentAlignment="Stretch" ExpandDirection="Left" Foreground="White" >
                 <Expander.Content>
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="40"/>
                             <RowDefinition Height="200"/>
                             <RowDefinition Height="60"/>
-                            <RowDefinition Height="60"/>
-                            <RowDefinition Height="60"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
 
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="0" x:Name="NewTaskBtn">
@@ -152,6 +153,10 @@
         </StackPanel>
 
         <Grid Grid.Column="1" x:Name="MainUserControl">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
             <xcad:DockingManager x:Name="DockingManager" BorderBrush="Black" BorderThickness="0"
                                  Background="#FFE0E4E2">
                 <!--<xcad:DockingManager.DocumentHeaderTemplate>
@@ -164,7 +169,7 @@
                         </Border>
                     </DataTemplate>
                 </xcad:DockingManager.DocumentHeaderTemplate>-->
-                
+
                 <xcad:LayoutRoot x:Name="LayoutRoot">
                     <xcad:LayoutPanel Orientation="Horizontal">
                         <!--工作区-->
@@ -175,6 +180,26 @@
                     </xcad:LayoutPanel>
                 </xcad:LayoutRoot>
             </xcad:DockingManager>
+            <Grid Grid.Row="1" Grid.ColumnSpan="2" x:Name="footer">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="ShowLogLabel" Grid.Column="0" Content="启动成功！" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="12" Margin="10,0,0,0"/>
+                <Grid Grid.Column="1">
+                    <Separator Margin="0,0,0,0" Height="10" HorizontalAlignment="Left" VerticalAlignment="Center" Width="25" RenderTransformOrigin="0.5,0.5">
+                            <Separator.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Separator.RenderTransform>
+                        </Separator>
+                    <Label x:Name="FooterDateTime" Content="2020-3-10" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="12" Margin="15,0,0,0"/>
+                </Grid>
+            </Grid>
         </Grid>
     </Grid>
 </Window>

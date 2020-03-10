@@ -21,6 +21,12 @@ namespace HR.Share.PublicShare.CustomUserControl.WpfUserControl
     /// </summary>
     public partial class WebSiteTypeAndSort : UserControl
     {
+
+        #region 变量
+
+
+        #endregion
+
         public WebSiteTypeAndSort()
         {
             InitializeComponent();
@@ -36,14 +42,16 @@ namespace HR.Share.PublicShare.CustomUserControl.WpfUserControl
                 foreach (GlobalStatic.WebSiteType item in webSiteTypes)
                 {
                     Label label = new Label();
+                    label.Height = ModuleTypes.ActualHeight;
                     label.Content = MainBaseMethod.GetEnumDescription(item);
                     label.Margin = new System.Windows.Thickness(5, 0, 0, 0);
                     label.Padding = new System.Windows.Thickness(5, 0, 5, 0);
                     label.HorizontalContentAlignment = System.Windows.HorizontalAlignment.Center;
-                    label.VerticalAlignment = System.Windows.VerticalAlignment.Center;
-                    label.PreviewMouseLeftButtonDown += Label_PreviewMouseLeftButtonDown;
+                    label.VerticalContentAlignment = System.Windows.VerticalAlignment.Center;
+                    //label.PreviewMouseLeftButtonDown += Label_PreviewMouseLeftButtonDown;
+                    label.MouseLeftButtonDown += Label_MouseLeftButtonDown;
+                    label.Style = (Style)this.FindResource("LabelStyle1");
                     this.ModuleTypes.Children.Add(label);
-                    //Style style = (Style)this.FindResource("样式名字");//查找资源词典
                 }
                 #endregion
 
@@ -53,24 +61,78 @@ namespace HR.Share.PublicShare.CustomUserControl.WpfUserControl
                 foreach (GlobalStatic.SortType item in sortTypes)
                 {
                     Label label = new Label();
+                    label.Height = ModuleSort.ActualHeight;
                     label.Content = MainBaseMethod.GetEnumDescription(item);
                     //label.Margin = new System.Windows.Thickness(5, 0, 0, 0);
                     label.Padding = new System.Windows.Thickness(5, 0, 5, 0);
                     label.HorizontalContentAlignment = System.Windows.HorizontalAlignment.Center;
-                    label.VerticalAlignment = System.Windows.VerticalAlignment.Center;
+                    label.VerticalContentAlignment = System.Windows.VerticalAlignment.Center;
+                    label.MouseLeftButtonDown += Label1_MouseLeftButtonDown;
+                    label.Style = (Style)this.FindResource("LabelStyle1");
                     this.ModuleSort.Children.Add(label);
                 }
                 #endregion
             }
             catch (Exception ex)
             {
-
+                Log4Lib.LogHelper.WriteLog(ex.Message, ex);
             }
         }
 
-        private void Label_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Label_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            try
+            {
+                Label label = (Label)sender;//FF3C55C5 #FFFFFFFF
+                UIElementCollection collection = this.ModuleTypes.Children;
+                foreach (System.Windows.Controls.Control item in collection)
+                {
+                    if (item == label)
+                    {
+                        item.Background = (Brush)this.FindResource("LabelForeground1");
+                        item.Foreground = (Brush)this.FindResource("LabelForeground3");
+                    }
+                    else
+                    {
+                        item.Background = (Brush)this.FindResource("Transparent");
+                        item.Foreground = (Brush)this.FindResource("LabelForeground2");
+                    }
+                }
+                //label.Background= new System.Windows.Media.SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#FF3C55C5"));
+                //label.Foreground= new System.Windows.Media.SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#FFFFFFFF"));
+            }
+            catch (Exception ex)
+            {
+                Log4Lib.LogHelper.WriteLog(ex.Message, ex);
+            }
+        }
 
+        private void Label1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                Label label = (Label)sender;//FF3C55C5 #FFFFFFFF
+                UIElementCollection collection = this.ModuleSort.Children;
+                foreach (System.Windows.Controls.Control item in collection)
+                {
+                    if (item == label)
+                    {
+                        item.Background = (Brush)this.FindResource("LabelForeground1");
+                        item.Foreground = (Brush)this.FindResource("LabelForeground3");
+                    }
+                    else
+                    {
+                        item.Background = (Brush)this.FindResource("Transparent");
+                        item.Foreground = (Brush)this.FindResource("LabelForeground2");
+                    }
+                }
+                //label.Background= new System.Windows.Media.SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#FF3C55C5"));
+                //label.Foreground= new System.Windows.Media.SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#FFFFFFFF"));
+            }
+            catch (Exception ex)
+            {
+                Log4Lib.LogHelper.WriteLog(ex.Message, ex);
+            }
         }
     }
 }

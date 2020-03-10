@@ -38,7 +38,8 @@
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Grid>
-                        <Image x:Name="Uc_Image" Source="pack://application:,,,/HR.Share.PublicShare;component/Resoures/search.png" Height="20" Width="20"></Image>
+                        <!--pack://application:,,,/PublicResources;component/Resources/Images/jd.jpg-->
+                        <Image x:Name="Uc_Image" Source="pack://application:,,,/PublicResources;component/Resources/Images/search.png" Height="20" Width="20"></Image>
                         <ContentPresenter></ContentPresenter>
                     </Grid>
                     <ControlTemplate.Triggers>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HR.Share.PublicShare.ExtendsClass;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace HR.Share.PublicShare.BaseClass.AbstractClass
     /// <summary>
     /// 子窗体必须实现此抽象类
     /// </summary>
-    public abstract class UserControlBaseClass
+    public abstract class UserControlBaseClass : DisposePatternSample
     {
         #region 变量
         private string _guid;

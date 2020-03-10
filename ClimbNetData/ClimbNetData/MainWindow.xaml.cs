@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using Xceed.Wpf.AvalonDock.Layout;
 
 namespace ClimbNetData
@@ -44,6 +45,7 @@ namespace ClimbNetData
                     LayoutDocument ld = MainBaseMethod.GetLayoutDocument(new HomePageProvider());
                     if (ld != null)
                     {
+                        ld.CanClose = false;//首页不可以关闭
                         DocPane1.Children.Add(ld);
                     }
                     else
@@ -59,14 +61,63 @@ namespace ClimbNetData
                 }
                 else
                 {
-                    MessageBox.Show("首页初始化失败！", "初始化", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("选择模板页面初始化失败！", "初始化", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             catch (Exception ex)
             {
-
+                Log4Lib.LogHelper.WriteLog(ex.Message, ex);
             }
         }
 
+        /// <summary>
+        /// Load事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                //把log4net主要信息输出到label显示区域
+                Log4Lib.LogHelper.AppendTextBox(this.ShowLogLabel);
+                Log4Lib.LogHelper.WriteErrorLog("异常调试。");
+                MainBaseMethod.pushTimerDateTime += RefushDateTime;
+                MainBaseMethod.InitTimer();
+            }
+            catch (Exception ex)
+            {
+                Log4Lib.LogHelper.WriteLog(ex.Message, ex);
+            }
+        }
+
+        private void RefushDateTime(DateTime dateTime)
+        {
+            try
+            {
+                this.FooterDateTime.Content = dateTime.ToString();
+            }
+            catch (Exception ex)
+            {
+                Log4Lib.LogHelper.WriteLog(ex.Message, ex);
+            }
+        }
+
+        /// <summary>
+        /// 程序退出
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            try
+            {
+                MainBaseMethod.StopTimer();//停止定时器
+            }
+            catch (Exception ex)
+            {
+                Log4Lib.LogHelper.WriteLog(ex.Message, ex);
+            }
+        }
     }
 }
