@@ -35,8 +35,8 @@
             </Grid.ColumnDefinitions>
 
             <WrapPanel Grid.Column="0" x:Name="WebSitesWrap">
-                <WpfUserControl:ClimbWebSite Width="80" Height="100" />
-                <WpfUserControl:ClimbWebSite Width="80" Height="100" />
+                <!--<WpfUserControl:ClimbWebSite Width="80" Height="100" />
+                <WpfUserControl:ClimbWebSite Width="80" Height="100" />-->
 
             </WrapPanel>
 

@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="log4net">
       <HintPath>..\..\..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -51,6 +52,7 @@
     <Compile Include="ClimbWebSiteIndex1.xaml.cs">
       <DependentUpon>ClimbWebSiteIndex1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ClimbWebSiteIndex1Provider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -62,10 +64,12 @@
     <ProjectReference Include="..\..\..\PublicShare\Log4Lib\Log4Lib.csproj">
       <Project>{50528F9F-4D38-4645-AEA7-F79A9E602A74}</Project>
       <Name>Log4Lib</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\..\PublicShare\PublicResources\PublicResources.csproj">
       <Project>{6ad10c02-6009-4ca5-b52b-4036a254f9ff}</Project>
       <Name>PublicResources</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

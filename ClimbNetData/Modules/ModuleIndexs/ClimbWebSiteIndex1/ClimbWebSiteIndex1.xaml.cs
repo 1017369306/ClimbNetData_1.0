@@ -15,6 +15,11 @@ namespace ClimbWebSiteIndexs
             InitializeComponent();
             Init();
         }
+        public ClimbWebSiteIndex1(ClimbWebSiteIndex1Provider provider)
+        {
+            InitializeComponent();
+            Init();
+        }
 
         public void Init()
         {

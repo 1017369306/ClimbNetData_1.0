@@ -133,6 +133,10 @@
       <Name>ChooseModule</Name>
       <Private>True</Private>
     </ProjectReference>
+    <ProjectReference Include="..\Modules\ModuleIndexs\ClimbWebSiteIndex1\ClimbWebSiteIndexs.csproj">
+      <Project>{32C5B924-1585-425A-86C9-49E9890CC0EB}</Project>
+      <Name>ClimbWebSiteIndexs</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PublicShare\HR.Share.PublicShare\HR.Share.PublicShare.csproj">
       <Project>{5DF8E10A-ECAC-4835-8962-A83530400421}</Project>
       <Name>HR.Share.PublicShare</Name>
