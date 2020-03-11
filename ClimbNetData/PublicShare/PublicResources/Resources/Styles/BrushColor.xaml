@@ -10,5 +10,7 @@
     <SolidColorBrush x:Key="LabelForeground3" Color="#FFFFFFFF"/>
     <!--透明色-->
     <SolidColorBrush x:Key="Transparent" Color="#00000000"/>
+    <!--灰色-->
+    <SolidColorBrush x:Key="Gray" Color="#FF8D8D8D"/>
 
 </ResourceDictionary>

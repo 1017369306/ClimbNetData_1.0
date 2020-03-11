@@ -72,6 +72,18 @@ namespace HR.Share.PublicShare.CustomUserControl.WpfUserControl
                     this.ModuleSort.Children.Add(label);
                 }
                 #endregion
+
+                //默认点击第一个label
+                if (this.ModuleTypes.Children.Count > 0)
+                {
+                    Label label1 = this.ModuleTypes.Children[0] as Label;
+                    Label_MouseLeftButtonDown(label1, null);
+                }
+                if (this.ModuleSort.Children.Count > 0)
+                {
+                    Label label1 = this.ModuleSort.Children[0] as Label;
+                    Label1_MouseLeftButtonDown(label1, null);
+                }
             }
             catch (Exception ex)
             {

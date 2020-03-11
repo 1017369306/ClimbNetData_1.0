@@ -29,14 +29,28 @@ namespace ClimbWebSiteIndexs
                 for (int i = 0; i < 8; i++)
                 {
                     ClimbWebSite climbWebSite = new ClimbWebSite();
-                    climbWebSite.Height = 80;
-                    climbWebSite.Width = 100;
+                    climbWebSite.MouseLeftButtonDown += ClimbWebSite_MouseLeftButtonDown;
+                    climbWebSite.Height = 200;
+                    climbWebSite.Width = 160;
                     websitebase website = new websitebase();
                     website.content = "京东" + i;
+                    website.moduleCount = "共" + i + "个模板";
                     website.imageUrl = new Uri(@"pack://application:,,,/PublicResources;component/Resources/Images/jd.jpg");
                     climbWebSite.DataContext = website;
                     this.WebSitesWrap.Children.Add(climbWebSite);
                 }
+            }
+            catch (Exception ex)
+            {
+                Log4Lib.LogHelper.WriteLog(ex.Message, ex);
+            }
+        }
+
+        private void ClimbWebSite_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            try
+            {
+
             }
             catch (Exception ex)
             {

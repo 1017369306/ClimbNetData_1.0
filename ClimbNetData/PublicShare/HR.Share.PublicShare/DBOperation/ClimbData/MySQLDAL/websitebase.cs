@@ -227,7 +227,7 @@ namespace Maticsoft.MySQLDAL
 				}
 				if(row["moduleCount"]!=null && row["moduleCount"].ToString()!="")
 				{
-					model.moduleCount=int.Parse(row["moduleCount"].ToString());
+					model.moduleCount=row["moduleCount"].ToString();
 				}
 			}
 			return model;

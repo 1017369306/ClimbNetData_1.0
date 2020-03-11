@@ -32,7 +32,7 @@ namespace Maticsoft.Model
 		private string _websitetype;
 		private string _content;
 		private Uri _imageurl;
-		private int? _modulecount;
+		private string _modulecount;
         private int? _index;
 		/// <summary>
 		/// 
@@ -85,7 +85,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 
 		/// </summary>
-		public int? moduleCount
+		public string moduleCount
 		{
 			set{ _modulecount=value;}
 			get{return _modulecount;}

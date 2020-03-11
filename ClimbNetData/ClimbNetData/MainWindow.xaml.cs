@@ -65,15 +65,15 @@ namespace ClimbNetData
                     MessageBox.Show("选择模板页面初始化失败！", "初始化", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
 
-                LayoutDocument ldTemp1 = MainBaseMethod.GetLayoutDocument(new ClimbWebSiteIndex1Provider());
-                if (ldTemp1 != null)
-                {
-                    DocPane1.Children.Add(ldTemp1);
-                }
-                else
-                {
-                    MessageBox.Show("选择模板页面初始化失败！", "初始化", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
+                //LayoutDocument ldTemp1 = MainBaseMethod.GetLayoutDocument(new ClimbWebSiteIndex1Provider());
+                //if (ldTemp1 != null)
+                //{
+                //    DocPane1.Children.Add(ldTemp1);
+                //}
+                //else
+                //{
+                //    MessageBox.Show("选择模板页面初始化失败！", "初始化", MessageBoxButton.OK, MessageBoxImage.Error);
+                //}
 
             }
             catch (Exception ex)
