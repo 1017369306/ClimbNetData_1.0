@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="PrismUICommon.Views.ClimbWebSiteIndex1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PrismUICommon.Views"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <!--子用户控件用了资源词典，调用此子用户控件的窗体也要引用资源词典（加dll，加UserControl.Resources）-->
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/PublicResources;component/Resources/Styles/WpfFormDictionary.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/PublicResources;component/Resources/Styles/BrushColor.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <ItemsControl Grid.Row="0" Grid.RowSpan="2" prism:RegionManager.RegionName="WebSiteTypeAndSort">
+            <!--<local:WebSiteTypeAndSort></local:WebSiteTypeAndSort>-->
+        </ItemsControl>
+        <ScrollViewer Grid.Row="3" Margin="5,10,5,0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <WrapPanel Grid.Column="0" x:Name="WebSitesWrap" prism:RegionManager.RegionName="WebSitesWrap">
+                    <!--<WpfUserControl:ClimbWebSite Width="80" Height="100" />
+                <WpfUserControl:ClimbWebSite Width="80" Height="100" />-->
+
+                </WrapPanel>
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <ItemsControl Grid.Row="0" prism:RegionManager.RegionName="NewClimbModule">
+                        
+                    </ItemsControl>
+                    <!--<local:NewClimbModule></local:NewClimbModule>-->
+                </Grid>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

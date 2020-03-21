@@ -3,12 +3,13 @@
                     xmlns:local="clr-namespace:PublicResources.Resources.Styles">
 
     <Style x:Key="LabelStyle1" TargetType="Label">
+
         <Style.Setters>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="Foreground" Value="#FF000000"/>
-            <Setter Property="Background" Value="#00000000"/>
+            <!--<Setter Property="Foreground" Value="{TemplateBinding w}"/>
+            <Setter Property="Background" Value="#00000000"/>-->
         </Style.Setters>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
@@ -92,5 +93,27 @@
             </Setter>
         </Style.Setters>
     </Style>
+
+    <!--<ControlTemplate x:Key="TabItemTem1" TargetType="TabItem" >
+        <Grid x:Name="TabItemGrid" Background="White" Height="30" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2"/>
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="HeaderTxt" FontWeight="Normal" Text="{TemplateBinding Header}" Foreground="Black" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Grid x:Name="BottomLine" VerticalAlignment="Bottom" Background="#FF1836BB" Visibility="Hidden"/>
+            --><!--<TextBlock x:Name="HeaderTxt" FontWeight="Normal" Text="{TemplateBinding Header}" Foreground="Black" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Grid x:Name="BottomLine" VerticalAlignment="Bottom" Background="#FF1836BB" Visibility="Hidden"/>--><!--
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Trigger.Setters>
+                    <Setter TargetName="HeaderTxt" Property="Foreground" Value="#FF1836BB"/>
+                    <Setter TargetName="HeaderTxt" Property="FontWeight" Value="Bold"/>
+                    <Setter TargetName="BottomLine" Property="Visibility" Value="Visible"/>
+                </Trigger.Setters>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>-->
     
 </ResourceDictionary>

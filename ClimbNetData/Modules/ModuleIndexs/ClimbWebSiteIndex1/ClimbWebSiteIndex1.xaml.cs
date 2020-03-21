@@ -50,7 +50,23 @@ namespace ClimbWebSiteIndexs
         {
             try
             {
-
+                ClimbWebSite CurrentClimbWebSite = (ClimbWebSite)sender;
+                websitebase temp = CurrentClimbWebSite.DataContext as websitebase;
+                if (temp.index == 1)
+                {
+                    this.WebSitesWrap.Children.Clear();
+                    for (int i = 0; i < 8; i++)
+                    {
+                        ClimbWebSiteModule climbWebSite = new ClimbWebSiteModule();
+                        climbWebSite.Height = 200;
+                        climbWebSite.Width = 160;
+                        websitebase website = new websitebase();
+                        website.content = "京东商品评论";
+                        website.imageUrl = new Uri(@"pack://application:,,,/PublicResources;component/Resources/Images/jd.jpg");
+                        climbWebSite.DataContext = website;
+                        this.WebSitesWrap.Children.Add(climbWebSite);
+                    }
+                }
             }
             catch (Exception ex)
             {

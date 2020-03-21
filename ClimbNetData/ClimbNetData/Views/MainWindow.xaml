@@ -1,0 +1,94 @@
+﻿<UserControl x:Class="ClimbNetData.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClimbNetData.Views"
+        xmlns:Interaction="http://schemas.microsoft.com/expression/2010/interactions"
+        xmlns:Interactivity="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:publicShare="clr-namespace:HR.Share.PublicShare;assembly=HR.Share.PublicShare"
+        xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock"
+        xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        mc:Ignorable="d"
+        MinHeight="600" MinWidth="900" Loaded="Window_Loaded">
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="MenuBtnColor" Color="#FF0C35EC"/>
+        <Style x:Key="menuItem" TargetType="MenuItem">
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <!--<Setter Property="Width" Value="{Binding ElementName=NewTaskBtn, Path=Width}"/>-->
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        <Style x:Key="Expander" TargetType="Expander">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="IsExpanded" Value="True"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="false">
+                    <Setter Property="IsExpanded" Value="False"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="6*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Background="#FF302B6A" prism:RegionManager.RegionName="{x:Static publicShare:RegionNames.MenuRegion}">
+        </StackPanel>
+
+        <Grid Grid.Column="1" x:Name="MainUserControl">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <!--<ItemsControl Background="Red" Grid.Row="0" prism:RegionManager.RegionName="ContentRegion">
+
+            </ItemsControl>-->
+            <xcad:DockingManager x:Name="DockingManager" BorderBrush="Black" BorderThickness="0"
+                                 Background="#FFE0E4E2" prism:RegionManager.RegionName="{x:Static publicShare:RegionNames.ContentRegion}">
+                <xcad:LayoutRoot x:Name="LayoutRoot">
+                    <xcad:LayoutPanel Orientation="Horizontal">
+                        <!--工作区-->
+                        <xcad:LayoutDocumentPaneGroup x:Name="MainPaneGroup">
+                            <!--在pane中add面板layoutdocument-->
+                            <xcad:LayoutDocumentPane x:Name="DocPane1" ShowHeader="True" CanRepositionItems="True" IsMaximized="True">
+                                <Interactivity:Interaction.Triggers>
+                                    <Interactivity:EventTrigger EventName="ChildrenCollectionChanged">
+                                        <Interactivity:InvokeCommandAction Command="{Binding c}" CommandParameter="{Binding ElementName=DocPane1}"/>
+                                        <!--<Interaction:CallMethodAction TargetObject="{Binding}" MethodName="SizeChangedCommand"/>-->
+                                    </Interactivity:EventTrigger>
+                                </Interactivity:Interaction.Triggers>
+                                    <!--<xcad:LayoutDocument x:Name="_HomePage" CanClose="False" IsActive="True">
+                                </xcad:LayoutDocument>-->
+                            </xcad:LayoutDocumentPane>
+                        </xcad:LayoutDocumentPaneGroup>
+                    </xcad:LayoutPanel>
+                </xcad:LayoutRoot>
+            </xcad:DockingManager>
+            <Grid Grid.Row="1" Grid.ColumnSpan="2" x:Name="footer">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="ShowLogLabel" Grid.Column="0" Content="{Binding LogInfo}" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="12" Margin="10,0,0,0"/>
+                <Grid Grid.Column="1">
+                    <Separator Margin="0,0,0,0" Height="10" HorizontalAlignment="Left" VerticalAlignment="Center" Width="25" RenderTransformOrigin="0.5,0.5">
+                        <Separator.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="90"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Separator.RenderTransform>
+                    </Separator>
+                    <Label x:Name="FooterDateTime" Content="{Binding NowDateTime,Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="12" Margin="15,0,0,0"/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

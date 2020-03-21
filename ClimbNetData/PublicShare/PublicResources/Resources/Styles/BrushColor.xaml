@@ -13,4 +13,6 @@
     <!--灰色-->
     <SolidColorBrush x:Key="Gray" Color="#FF8D8D8D"/>
 
+    <s:String x:Key="text">ceshi</s:String>
+    
 </ResourceDictionary>

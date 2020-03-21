@@ -1,0 +1,14 @@
+﻿<UserControl x:Class="PrismUICommon.Views.UserControl2"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PrismUICommon.Views"
+             mc:Ignorable="d" 
+             x:Name="thisUserControl"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="Yellow" VerticalAlignment="Stretch">
+        <Label Content="测试100" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="48" Foreground="Red"/>
+
+    </Grid>
+</UserControl>

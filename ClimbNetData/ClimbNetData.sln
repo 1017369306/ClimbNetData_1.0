@@ -27,6 +27,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ModuleIndexs", "ModuleIndex
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClimbWebSiteIndexs", "Modules\ModuleIndexs\ClimbWebSiteIndex1\ClimbWebSiteIndexs.csproj", "{32C5B924-1585-425A-86C9-49E9890CC0EB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismUICommon", "Modules\PrismUICommon\PrismUICommon.csproj", "{DF4D7136-9163-4E56-BCAA-9ED6211F7DA8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{32C5B924-1585-425A-86C9-49E9890CC0EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32C5B924-1585-425A-86C9-49E9890CC0EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32C5B924-1585-425A-86C9-49E9890CC0EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF4D7136-9163-4E56-BCAA-9ED6211F7DA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF4D7136-9163-4E56-BCAA-9ED6211F7DA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF4D7136-9163-4E56-BCAA-9ED6211F7DA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF4D7136-9163-4E56-BCAA-9ED6211F7DA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,6 +89,7 @@ Global
 		{94261D68-8816-4159-A5B8-623C8CCB52B4} = {29DBC149-5DAC-4293-95EB-90FF22D04EAF}
 		{751225DF-A6D6-4008-8196-A776A1434CAD} = {29DBC149-5DAC-4293-95EB-90FF22D04EAF}
 		{32C5B924-1585-425A-86C9-49E9890CC0EB} = {751225DF-A6D6-4008-8196-A776A1434CAD}
+		{DF4D7136-9163-4E56-BCAA-9ED6211F7DA8} = {29DBC149-5DAC-4293-95EB-90FF22D04EAF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CD4322DC-AF4B-479E-8842-8AE7A6221E93}
