@@ -29,12 +29,13 @@ namespace ClimbNetData.ViewModels
             IRegion detailsRegion = null;
             try
             {
+                //HomePage.Views.HomePage homePage = this._unityContainer.Resolve<HomePage.ViewModels.HomePageViewModel>();
                 IRegionManager newRegionManager = this._regionManager.CreateRegionManager();
                 detailsRegion = this._regionManager.Regions[RegionNames.ContentRegion];
                 this._regionManager = newRegionManager;
                 HomePage.Views.HomePage homePage = new HomePage.Views.HomePage();
-                newRegionManager
-                IRegionManager detailsRegionManager = detailsRegion.Add(homePage, null, true);
+                //newRegionManager.RegisterViewWithRegion("HomePage", this._unityContainer.Resolve<HomePage.HomePageModule>());
+                IRegionManager detailsRegionManager = newRegionManager.Regions["HomePage"].Add(homePage, null, true);
                 //this._regionManager = detailsRegionManager;
             }
             catch (Exception ex)

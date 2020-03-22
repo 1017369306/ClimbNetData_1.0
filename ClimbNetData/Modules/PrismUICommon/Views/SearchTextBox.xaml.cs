@@ -23,6 +23,26 @@ namespace PrismUICommon.Views
         public SearchTextBox()
         {
             InitializeComponent();
+            this.BtnSearch.MouseLeftButtonUp += BtnSearch_MouseLeftButtonUp;
+        }
+
+        private void BtnSearch_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        protected override void OnMouseLeftButtonUp(MouseButtonEventArgs e)
+        {
+            base.OnMouseLeftButtonUp(e);
+
+            //if (!e.Handled)
+            //{
+            //    if ((this.moduleTrackingState != null) && (this.moduleTrackingState.ExpectedInitializationMode == InitializationMode.OnDemand) && (moduleTrackingState.ModuleInitializationStatus == ModuleInitializationStatus.NotStarted))
+            //    {
+            //        this.RaiseRequestModuleLoad();
+            //        e.Handled = true;
+            //    }
+            //}
         }
     }
 }

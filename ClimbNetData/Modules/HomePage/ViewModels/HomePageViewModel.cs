@@ -51,9 +51,10 @@ namespace HomePage.ViewModels
             {
                 //var regionManager = _unityContainer.Resolve<IRegionManager>();
                 //IRegionManager regionManager1 = ServiceLocator.Current.GetInstance<IRegionManager>();
-                IRegion SearchText = _regionManager.Regions[RegionNames.SearchText];
+                //IRegion SearchText = _regionManager.Regions[RegionNames.SearchText];
+                IRegion SearchText = _regionManager.Regions["HomePage"];
                 PrismUICommon.Views.SearchTextBox searchTextBox = new PrismUICommon.Views.SearchTextBox();
-                SearchText.RegionManager.AddToRegion(RegionNames.SearchText, searchTextBox);
+                SearchText.Add(searchTextBox, null, true);
                 //if (view == null) return;
                 //IRegion region = RegionManager.GetRegionManager(view).Regions[RegionNames.SearchText];
                 //region.Add(new HelloWorldView(), "hello");

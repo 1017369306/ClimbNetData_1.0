@@ -50,6 +50,9 @@
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Button.Template>
+            <Button.ToolTip>
+                
+            </Button.ToolTip>
         </Button>
     </Grid>
 </UserControl>
