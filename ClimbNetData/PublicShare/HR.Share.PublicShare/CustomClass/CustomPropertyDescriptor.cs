@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HR.Share.PublicShare.CustomClass
 {
-    public class CustomPropertyDescriptor: PropertyDescriptor
+    public class CustomPropertyDescriptor : PropertyDescriptor
     {
         PropertyInfo info;
         public CustomPropertyDescriptor(PropertyInfo propertyInfo, Attribute[] attrs) :

@@ -1,8 +1,7 @@
-﻿using Prism.Modularity;
+﻿using Prism.Ioc;
+using Prism.Modularity;
 //using Prism.Mef.Modularity;
 using Prism.Regions;
-using System.ComponentModel.Composition;
-using Prism.Ioc;
 
 namespace ChooseModule
 {

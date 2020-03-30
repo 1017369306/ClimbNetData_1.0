@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-//using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HR.Share.PublicShare;
-using HR.Share.PublicShare.StaticBase.ClimbData;
+﻿//using System.Linq;
 using Prism.Ioc;
 //using Prism.Mef.Modularity;
 using Prism.Modularity;

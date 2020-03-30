@@ -4,6 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PrismUICommon.Views"
+                          xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
              mc:Ignorable="d" MinHeight="30" MinWidth="150" Background="Transparent"
              d:DesignHeight="30" d:DesignWidth="150">
     <Grid>
@@ -51,7 +53,15 @@
                 </ControlTemplate>
             </Button.Template>
             <Button.ToolTip>
-                
+                <Grid Width="100">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <!--TargetNullValue：获取或设置当源的值为 nullNothingnullptrunitnull 引用（在 Visual Basic 中为 Nothing） 时在目标中使用的值。
+ FallbackValue：获取或设置当绑定无法返回值或无法解析源路径时要使用的值。-->
+                    <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="{Binding BtnToolTip, FallbackValue=Unknown}" />
+
+                </Grid>
             </Button.ToolTip>
         </Button>
     </Grid>

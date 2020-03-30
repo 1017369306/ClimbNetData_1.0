@@ -1,15 +1,9 @@
 ﻿using HR.Share.PublicShare.ExtendsClass;
 using Maticsoft.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
 
 namespace HR.Share.PublicShare.BaseClass.AbstractClass
 {
-    public abstract class ClimbWebSiteIndexBaseClass: DisposePatternSample
+    public abstract class ClimbWebSiteIndexBaseClass : DisposePatternSample
     {
         #region 变量
         private string _guid;

@@ -17,79 +17,79 @@
 using System;
 namespace Maticsoft.Model
 {
-	/// <summary>
-	/// websitebase:实体类(属性说明自动提取数据库字段的描述信息)
-	/// </summary>
-	[Serializable]
-	public partial class websitebase
-	{
-		public websitebase()
-		{}
-		#region Model
-		private string _id;
-		private DateTime? _createtime;
-		private DateTime? _updatetime;
-		private string _websitetype;
-		private string _content;
-		private Uri _imageurl;
-		private string _modulecount;
+    /// <summary>
+    /// websitebase:实体类(属性说明自动提取数据库字段的描述信息)
+    /// </summary>
+    [Serializable]
+    public partial class websitebase
+    {
+        public websitebase()
+        { }
+        #region Model
+        private string _id;
+        private DateTime? _createtime;
+        private DateTime? _updatetime;
+        private string _websitetype;
+        private string _content;
+        private Uri _imageurl;
+        private string _modulecount;
         private int? _index;
-		/// <summary>
-		/// 
-		/// </summary>
-		public string id
-		{
-			set{ _id=value;}
-			get{return _id;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime? createTime
-		{
-			set{ _createtime=value;}
-			get{return _createtime;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime? updateTime
-		{
-			set{ _updatetime=value;}
-			get{return _updatetime;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public string webSiteType
-		{
-			set{ _websitetype=value;}
-			get{return _websitetype;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public string content
-		{
-			set{ _content=value;}
-			get{return _content;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public Uri imageUrl
-		{
-			set{ _imageurl=value;}
-			get{return _imageurl;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public string moduleCount
-		{
-			set{ _modulecount=value;}
-			get{return _modulecount;}
-		}
+        /// <summary>
+        /// 
+        /// </summary>
+        public string id
+        {
+            set { _id = value; }
+            get { return _id; }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? createTime
+        {
+            set { _createtime = value; }
+            get { return _createtime; }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? updateTime
+        {
+            set { _updatetime = value; }
+            get { return _updatetime; }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string webSiteType
+        {
+            set { _websitetype = value; }
+            get { return _websitetype; }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string content
+        {
+            set { _content = value; }
+            get { return _content; }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public Uri imageUrl
+        {
+            set { _imageurl = value; }
+            get { return _imageurl; }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string moduleCount
+        {
+            set { _modulecount = value; }
+            get { return _modulecount; }
+        }
         /// <summary>
         /// 
         /// </summary>

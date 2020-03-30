@@ -4,6 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:Interaction="http://schemas.microsoft.com/expression/2010/interactions"
+             xmlns:Interactivity="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
              xmlns:local="clr-namespace:ClimbNetData.Views"
              xmlns:publicShare="clr-namespace:HR.Share.PublicShare;assembly=HR.Share.PublicShare"
              xmlns:prism="http://prismlibrary.com/"
@@ -11,25 +14,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="150">
     <UserControl.Resources>
-        
         <Style x:Key="MenuBtn" TargetType="Button">
-            <!--<Setter Property="Background" Value="Transparent"/>
-            <Setter Property="HorizontalAlignment" Value="Stretch"/>
-            <Setter Property="VerticalAlignment" Value="Stretch"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="BorderThickness" Value="0,0,0,0.5"/>
-            <Setter Property="BorderBrush" Value="Black"/>
-            <Setter Property="Height" Value="auto"/>
-            <Setter Property="FontSize" Value="12"/>
-            <Setter Property="MinWidth" Value="100"/>
-            <Setter Property="MinHeight" Value="20"/>-->
             <Setter Property="BorderThickness" Value="0,0,0,0.5"/>
             <Setter Property="BorderBrush" Value="Black"/>
             <Setter Property="MinWidth" Value="100"/>
             <Setter Property="Command" Value="{Binding MenuCommand}"/>
+            <!--<Setter Property="CommandParameter" Value="{Binding Path=Content}"/>-->
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
@@ -41,91 +31,92 @@
             </Setter>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="true">
+                    <!--FF0C35EC-->
                     <Setter Property="Background" Value="#FF0C35EC"/>
                 </Trigger>
             </Style.Triggers>
-            <!--<Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button" x:Name="menu">
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="true">
-                                <Setter TargetName="menu" Property="Background" Value="#FF0C35EC"></Setter>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>-->
         </Style>
     </UserControl.Resources>
+    <dxmvvm:Interaction.Behaviors>
+        <dxmvvm:NotificationService x:Name="ServiceWithDefaultNotifications"
+                                    ApplicationId="sample_notification_app"
+                                    PredefinedNotificationTemplate="ShortHeaderAndTwoTextFields"
+                                    CustomNotificationPosition="BottomRight"
+                                    CustomNotificationScreen="ApplicationWindow" CustomNotificationVisibleMaxCount="4"  />
+    </dxmvvm:Interaction.Behaviors>
     <Expander Header="{Binding ClientTitle}" IsExpanded="True" HorizontalContentAlignment="Stretch" ExpandDirection="Left" Foreground="White" >
-        <Expander.Content>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="200"/>
-                    <RowDefinition Height="60"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
+            <Expander.Content>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="200"/>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
 
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="0" x:Name="NewTaskBtn">
-                    <Button x:Name="NewTask" Foreground="White" FontSize="16" Content="新建" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="25">
-                        <Button.Template >
-                            <ControlTemplate TargetType="{x:Type Button}" >
-                                <Border BorderBrush="{TemplateBinding Control.BorderBrush}" BorderThickness="0" CornerRadius="10,10,10,10" Name="PART_Background">
-                                    <Border.Background>
-                                        <!--<SolidColorBrush Color="#FF4848CD"/>-->
-                                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                                            <GradientStop Color="Red" Offset="0.0" />
-                                            <!--<GradientStop Color="Silver" Offset="0.0" />-->
-                                            <GradientStop Color="Silver" Offset="0.5" />
-                                            <GradientStop Color="#FF4848CD" Offset="1" />
-                                        </LinearGradientBrush>
-                                    </Border.Background>
-                                    <ContentPresenter Content="{TemplateBinding ContentControl.Content}" HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
-                                </Border>
-                                <ControlTemplate.Triggers>
-                                    <Trigger Property="UIElement.IsMouseOver" Value="True">
-                                        <Setter Property="Border.Background" TargetName="PART_Background">
-                                            <Setter.Value>
-                                                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                                                    <GradientStop Color="#FFD33838" Offset="0.0" />
-                                                    <GradientStop Color="Silver" Offset="0.5" />
-                                                    <GradientStop Color="#FF4D7CC1" Offset="1" />
-                                                </LinearGradientBrush>
-                                            </Setter.Value>
-                                        </Setter>
-                                    </Trigger>
-                                    <Trigger Property="ButtonBase.IsPressed" Value="True">
-                                        <Setter Property="UIElement.Effect">
-                                            <Setter.Value>
-                                                <DropShadowEffect BlurRadius="10" Color="Black" Direction="0" Opacity="0.6" RenderingBias="Performance" ShadowDepth="0" />
-                                            </Setter.Value>
-                                        </Setter>
-                                    </Trigger>
-                                </ControlTemplate.Triggers>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" x:Name="NewTaskBtn">
+                    <Button x:Name="NewTask" Foreground="White" Command="{Binding ShowPredefinedCommand}" FontSize="16" Content="新建" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="25">
+                            <Button.Template >
+                                <ControlTemplate TargetType="{x:Type Button}" >
+                                    <Border BorderBrush="{TemplateBinding Control.BorderBrush}" BorderThickness="0" CornerRadius="10,10,10,10" Name="PART_Background">
+                                        <Border.Background>
+                                            <!--<SolidColorBrush Color="#FF4848CD"/>-->
+                                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                                <GradientStop Color="Red" Offset="0.0" />
+                                                <!--<GradientStop Color="Silver" Offset="0.0" />-->
+                                                <GradientStop Color="Silver" Offset="0.5" />
+                                                <GradientStop Color="#FF4848CD" Offset="1" />
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <ContentPresenter Content="{TemplateBinding ContentControl.Content}" HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="UIElement.IsMouseOver" Value="True">
+                                            <Setter Property="Border.Background" TargetName="PART_Background">
+                                                <Setter.Value>
+                                                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                                        <GradientStop Color="#FFD33838" Offset="0.0" />
+                                                        <GradientStop Color="Silver" Offset="0.5" />
+                                                        <GradientStop Color="#FF4D7CC1" Offset="1" />
+                                                    </LinearGradientBrush>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                        <Trigger Property="ButtonBase.IsPressed" Value="True">
+                                            <Setter Property="UIElement.Effect">
+                                                <Setter.Value>
+                                                    <DropShadowEffect BlurRadius="10" Color="Black" Direction="0" Opacity="0.6" RenderingBias="Performance" ShadowDepth="0" />
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
 
-                </Grid>
+                    </Grid>
 
-                <Grid Grid.Row="1" Background="#FF302B6A">
+                <Grid Grid.Row="1" x:Name="MenuItems" Background="#FF302B6A">
+
+                    <Interactivity:Interaction.Triggers>
+                        <Interactivity:EventTrigger EventName="Loaded">
+                            <Interactivity:InvokeCommandAction Command="{Binding MenuItemsLoadedCommand}" CommandParameter="{Binding ElementName=MenuItems}"/>
+                        </Interactivity:EventTrigger>
+                    </Interactivity:Interaction.Triggers>
+
                     <Grid.RowDefinitions>
                         <RowDefinition Height="40"/>
                         <RowDefinition Height="40"/>
                         <RowDefinition Height="40"/>
                         <RowDefinition Height="40"/>
                         <RowDefinition Height="40"/>
-                        <!--<RowDefinition Height="1*"/>-->
                     </Grid.RowDefinitions>
-                    <!--<Button Content="首页" Grid.Row="0" Style="{StaticResource MenuBtn}"/>-->
-                    <Button Content="我的任务" Grid.Row="0" Style="{StaticResource MenuBtn}"/>
-                    <Button Content="数据抓取" Grid.Row="1" Style="{StaticResource MenuBtn}"/>
-                    <Button Content="团队协作" Grid.Row="2" Style="{StaticResource MenuBtn}"/>
-                    <Button Content="定制数据" Grid.Row="3" Style="{StaticResource MenuBtn}"/>
-                    <Button Content="人工服务" Grid.Row="4" Style="{StaticResource MenuBtn}"/>
-                    <!--<Button Content="我的任务" Grid.Row="0" Style="{StaticResource MenuBtn}" />-->
+                    <Button x:Name="Btn1" Content="我的任务" Grid.Row="0" CommandParameter="{Binding ElementName=Btn1}" Style="{StaticResource MenuBtn}"/>
+                    <Button x:Name="Btn2" Content="数据抓取" Grid.Row="1" CommandParameter="{Binding ElementName=Btn2}" Style="{StaticResource MenuBtn}"/>
+                    <Button x:Name="Btn3" Content="团队协作" Grid.Row="2" CommandParameter="{Binding ElementName=Btn3}" Style="{StaticResource MenuBtn}"/>
+                    <Button x:Name="Btn4" Content="定制数据" Grid.Row="3" CommandParameter="{Binding ElementName=Btn4}" Style="{StaticResource MenuBtn}"/>
+                    <Button x:Name="Btn5" Content="人工服务" Grid.Row="4" CommandParameter="{Binding ElementName=Btn5}" Style="{StaticResource MenuBtn}"/>
                 </Grid>
 
                 <!--<Menu Grid.Row="1" x:Name="Menu" IsMainMenu="True" Background="#FF302B6A" Foreground="White">
@@ -137,7 +128,8 @@
                         <MenuItem Header="人工客服" Style="{StaticResource menuItem}"/>
 
                     </Menu>-->
-            </Grid>
-        </Expander.Content>
-    </Expander>
+                </Grid>
+            </Expander.Content>
+        </Expander>
+
 </UserControl>

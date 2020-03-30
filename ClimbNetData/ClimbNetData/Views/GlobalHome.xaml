@@ -4,20 +4,42 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClimbNetData.Views"
+        xmlns:Interaction="http://schemas.microsoft.com/expression/2010/interactions"
+        xmlns:Interactivity="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+        xmlns:ViewModels="clr-namespace:ClimbNetData.ViewModels"
         xmlns:prism="http://prismlibrary.com/"
         prism:ViewModelLocator.AutoWireViewModel="True"
         xmlns:publicShare="clr-namespace:HR.Share.PublicShare;assembly=HR.Share.PublicShare"
         mc:Ignorable="d"
+        x:Name="GlobalHomeWindows"
         Title="{Binding Title}"
         MinHeight="600"
         MinWidth="900" 
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized"
+        WindowStyle="None"
         Background="White"
         TextElement.FontWeight="Medium" SnapsToDevicePixels="True"
         TextElement.FontSize="14" 
         Icon="..\CuttleFish.ico"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
-    <ContentControl prism:RegionManager.RegionName="{x:Static publicShare:RegionNames.GlobalRegion}" />
+    <Interactivity:Interaction.Triggers>
+        <Interactivity:EventTrigger EventName="Loaded">
+            <Interactivity:InvokeCommandAction Command="{Binding GlobalHomeLoadedCommand}" CommandParameter="{Binding ElementName=GlobalHomeWindows}"/>
+            <!--<Interaction:CallMethodAction TargetObject="{Binding}" MethodName="SizeChangedCommand"/>-->
+        </Interactivity:EventTrigger>
+    </Interactivity:Interaction.Triggers>
+    <!--<dxmvvm:Interaction.Behaviors>
+        <dxmvvm:NotificationService x:Name="ServiceWithDefaultNotifications"
+                                    ApplicationId="sample_notification_app"
+                                    PredefinedNotificationTemplate="ShortHeaderAndTwoTextFields"
+                                    CustomNotificationPosition="BottomRight"
+                                    CustomNotificationScreen="ApplicationWindow"
+                                    CustomNotificationVisibleMaxCount="4" 
+                                    />
+    </dxmvvm:Interaction.Behaviors>-->
+    
+    <ContentControl Grid.Row="1" prism:RegionManager.RegionName="{x:Static publicShare:RegionNames.GlobalRegion}" />
 
 </Window>

@@ -1,52 +1,82 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using HR.Share.PublicShare;
-using HR.Share.PublicShare.StaticBase.ClimbData;
+﻿using HR.Share.PublicShare;
+using HR.Share.PublicShare.BaseClass.AbstractClass;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
+using System;
 using Unity;
 
 namespace HomePage
 {
-    public class HomePageModule : IModule
+    public class HomePageModule : ModuleBase, IModule
     {
         private readonly IRegionManager _regionManager;
         private readonly IUnityContainer _unityContainer;
 
+
+        #region 实现IModuleBase的接口
+        public override GlobalClass.MenuItems menuItem
+        {
+            get
+            {
+                return GlobalClass.MenuItems.HomePage;
+            }
+        }
+
+        /// <summary>
+        /// 加载首页功能
+        /// </summary>
+        public override void Load()
+        {
+            try
+            {
+                IRegion detailsRegion = this._regionManager.Regions[RegionNames.ContentRegion];
+                HomePage.Views.HomePage view = new HomePage.Views.HomePage();
+                bool createRegionManagerScope = true;
+                IRegionManager detailsRegionManager = detailsRegion.Add(view, "首页",
+                                            createRegionManagerScope);
+                detailsRegionManager.Regions[RegionNames.SearchText].Add(new PrismUICommon.Views.SearchTextBox());
+            }
+            catch (Exception ex)
+            {
+                Log4Lib.LogHelper.WriteLog(ex.Message, ex);
+            }
+        }
+        #endregion
+
         public HomePageModule(IRegionManager regionManager, IUnityContainer container)
         {
+            //regionManager属性为父视图的属性，此时还没有加载当前模块的region
             _regionManager = regionManager;
             _unityContainer = container;
+            //首次加载时加载首页
+            IRegionManager AllRegionManager = _unityContainer.Resolve<IRegionManager>();
+            if (AllRegionManager.Regions[RegionNames.ContentRegion].GetView("首页") == null)
+            {
+                Load();
+            }
         }
 
         public void RenderHomePage()
         {
             //添加首页
             IRegion ContentRegion = this._regionManager.Regions[RegionNames.ContentRegion];
-            ContentRegion.Add(new Views.HomePage());
-            IRegion SearchText = this._regionManager.Regions[RegionNames.SearchText];
             PrismUICommon.Views.SearchTextBox searchTextBox = new PrismUICommon.Views.SearchTextBox();
-            SearchText.RegionManager.AddToRegion(RegionNames.SearchText, searchTextBox);
-        }
-        public void DisplayHelloWorldView()
-        {
-            IRegion region = this._regionManager.Regions[RegionNames.SearchText];
-            //IRegion region = RegionManager.GetRegionManager(view).Regions[RegionNames.SearchText];
-            region.Add(new HomePage.Views.HomePage(), "HomePage");
+            //SearchTextBox.SearchTextBoxModule searchTextBoxModule = _unityContainer.Resolve<SearchTextBox.SearchTextBoxModule>();
+            ContentRegion.Add(searchTextBox);
+            //searchTextBoxModule.DisplaySearchTextBox();
+
 
             //IRegion SearchText = this._regionManager.Regions[RegionNames.SearchText];
-            //SearchText.Add(new Views.HomePage());
+            //PrismUICommon.Views.SearchTextBox searchTextBox = new PrismUICommon.Views.SearchTextBox();
+            //SearchText.RegionManager.AddToRegion(RegionNames.SearchText, searchTextBox);
         }
 
         public void OnInitialized(IContainerProvider containerProvider)
         {
             try
             {
-                RenderHomePage();
+                //RenderHomePage();
 
                 //IRegion detailsRegion = this._regionManager.Regions[RegionNames.ContentRegion];
                 //PrismUICommon.Views.SearchTextBox searchTextBox = new PrismUICommon.Views.SearchTextBox();
@@ -58,7 +88,7 @@ namespace HomePage
             {
 
             }
-            
+
             //detailsRegion.Activate(searchTextBox);
             //var regionManager = containerProvider.Resolve<IRegionManager>();
 

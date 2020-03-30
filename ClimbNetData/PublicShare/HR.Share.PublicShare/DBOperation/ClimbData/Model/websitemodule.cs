@@ -17,62 +17,62 @@
 using System;
 namespace Maticsoft.Model
 {
-	/// <summary>
-	/// websitemodule:实体类(属性说明自动提取数据库字段的描述信息)
-	/// </summary>
-	[Serializable]
-	public partial class websitemodule
-	{
-		public websitemodule()
-		{}
-		#region Model
-		private string _id;
-		private string _parentid;
-		private DateTime? _createtime;
-		private DateTime? _updatetime;
-		private string _content;
-		/// <summary>
-		/// 
-		/// </summary>
-		public string id
-		{
-			set{ _id=value;}
-			get{return _id;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public string parentId
-		{
-			set{ _parentid=value;}
-			get{return _parentid;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime? createTime
-		{
-			set{ _createtime=value;}
-			get{return _createtime;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime? updateTime
-		{
-			set{ _updatetime=value;}
-			get{return _updatetime;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public string content
-		{
-			set{ _content=value;}
-			get{return _content;}
-		}
-		#endregion Model
+    /// <summary>
+    /// websitemodule:实体类(属性说明自动提取数据库字段的描述信息)
+    /// </summary>
+    [Serializable]
+    public partial class websitemodule
+    {
+        public websitemodule()
+        { }
+        #region Model
+        private string _id;
+        private string _parentid;
+        private DateTime? _createtime;
+        private DateTime? _updatetime;
+        private string _content;
+        /// <summary>
+        /// 
+        /// </summary>
+        public string id
+        {
+            set { _id = value; }
+            get { return _id; }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string parentId
+        {
+            set { _parentid = value; }
+            get { return _parentid; }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? createTime
+        {
+            set { _createtime = value; }
+            get { return _createtime; }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? updateTime
+        {
+            set { _updatetime = value; }
+            get { return _updatetime; }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string content
+        {
+            set { _content = value; }
+            get { return _content; }
+        }
+        #endregion Model
 
-	}
+    }
 }
 

@@ -1,16 +1,13 @@
-﻿using HR.Share.PublicShare.BaseClass.AbstractClass;
+﻿using HR.Share.PublicShare.BaseClass;
+using HR.Share.PublicShare.BaseClass.AbstractClass;
 using Prism.Regions;
 using PrismUICommon.Interface;
 using PrismUICommon.UsingCompositeCommands.Core;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PrismUICommon.ViewModels
 {
-    public class ChooseClimbModuleViewModel : CustomICommand, MyINavigationAware
+    public class ChooseClimbModuleViewModel : ViewModelBase, MyINavigationAware
     {
         #region 私有属性
         private bool _canNavigation = false;

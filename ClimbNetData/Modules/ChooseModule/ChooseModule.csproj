@@ -123,12 +123,6 @@
       <Private>False</Private>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </ProjectReference>
-    <ProjectReference Include="..\ModuleIndexs\ClimbWebSiteIndex1\ClimbWebSiteIndexs.csproj">
-      <Project>{32c5b924-1585-425a-86c9-49e9890cc0eb}</Project>
-      <Name>ClimbWebSiteIndexs</Name>
-      <Private>False</Private>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Page Include="ChooseClimbModule.xaml">

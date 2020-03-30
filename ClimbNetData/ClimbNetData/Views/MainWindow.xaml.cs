@@ -1,20 +1,6 @@
-﻿using ChooseModule;
-using HR.Share.PublicShare;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Xceed.Wpf.AvalonDock.Layout;
-using HomePage;
 
 namespace ClimbNetData.Views
 {
@@ -113,8 +99,8 @@ namespace ClimbNetData.Views
             try
             {
                 //把log4net主要信息输出到label显示区域
-                Log4Lib.LogHelper.AppendTextBox(this.ShowLogLabel);
-                Log4Lib.LogHelper.WriteErrorLog("异常调试。");
+                //Log4Lib.LogHelper.AppendTextBox(this.ShowLogLabel);
+                //Log4Lib.LogHelper.WriteErrorLog("异常调试。");
 
                 //LayoutDocument ld = new LayoutDocument();
                 //ld.Title = "首页";

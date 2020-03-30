@@ -1,13 +1,9 @@
-﻿using PrismUICommon.BaseClass;
-using Prism.Regions;
+﻿using Prism.Regions;
+using PrismUICommon.BaseClass;
 using PrismUICommon.Interface;
 using PrismUICommon.UsingCompositeCommands.Core;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace PrismUICommon.ViewModels

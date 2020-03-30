@@ -14,57 +14,56 @@
 *│　版权所有：动软卓越（北京）科技有限公司　　　　　　　　　　　　　　│
 *└──────────────────────────────────┘
 */
-using System;
 using System.Data;
 namespace Maticsoft.IDAL
 {
-	/// <summary>
-	/// 接口层websitebase
-	/// </summary>
-	public interface Iwebsitebase
-	{
-		#region  成员方法
-		/// <summary>
-		/// 是否存在该记录
-		/// </summary>
-		bool Exists(string id);
-		/// <summary>
-		/// 增加一条数据
-		/// </summary>
-		bool Add(Maticsoft.Model.websitebase model);
-		/// <summary>
-		/// 更新一条数据
-		/// </summary>
-		bool Update(Maticsoft.Model.websitebase model);
-		/// <summary>
-		/// 删除一条数据
-		/// </summary>
-		bool Delete(string id);
-		bool DeleteList(string idlist );
-		/// <summary>
-		/// 得到一个对象实体
-		/// </summary>
-		Maticsoft.Model.websitebase GetModel(string id);
-		Maticsoft.Model.websitebase DataRowToModel(DataRow row);
-		/// <summary>
-		/// 获得数据列表
-		/// </summary>
-		DataSet GetList(string strWhere);
-		/// <summary>
-		/// 根据分页获得数据列表
-		/// </summary>
-		//DataSet GetList(int PageSize,int PageIndex,string strWhere);
-		/// <summary>
-		/// 分页获取数据列表
-		/// </summary>
-		int GetRecordCount(string strWhere);
-		/// <summary>
-		/// 分页获取数据列表
-		/// </summary>
-		DataSet GetListByPage(string strWhere, string orderby, int startIndex, int endIndex);
-		#endregion  成员方法
-		#region  MethodEx
+    /// <summary>
+    /// 接口层websitebase
+    /// </summary>
+    public interface Iwebsitebase
+    {
+        #region  成员方法
+        /// <summary>
+        /// 是否存在该记录
+        /// </summary>
+        bool Exists(string id);
+        /// <summary>
+        /// 增加一条数据
+        /// </summary>
+        bool Add(Maticsoft.Model.websitebase model);
+        /// <summary>
+        /// 更新一条数据
+        /// </summary>
+        bool Update(Maticsoft.Model.websitebase model);
+        /// <summary>
+        /// 删除一条数据
+        /// </summary>
+        bool Delete(string id);
+        bool DeleteList(string idlist);
+        /// <summary>
+        /// 得到一个对象实体
+        /// </summary>
+        Maticsoft.Model.websitebase GetModel(string id);
+        Maticsoft.Model.websitebase DataRowToModel(DataRow row);
+        /// <summary>
+        /// 获得数据列表
+        /// </summary>
+        DataSet GetList(string strWhere);
+        /// <summary>
+        /// 根据分页获得数据列表
+        /// </summary>
+        //DataSet GetList(int PageSize,int PageIndex,string strWhere);
+        /// <summary>
+        /// 分页获取数据列表
+        /// </summary>
+        int GetRecordCount(string strWhere);
+        /// <summary>
+        /// 分页获取数据列表
+        /// </summary>
+        DataSet GetListByPage(string strWhere, string orderby, int startIndex, int endIndex);
+        #endregion  成员方法
+        #region  MethodEx
 
-		#endregion  MethodEx
-	} 
+        #endregion  MethodEx
+    }
 }

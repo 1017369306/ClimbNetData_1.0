@@ -1,17 +1,11 @@
-﻿using CommonServiceLocator;
-using HR.Share.PublicShare;
+﻿using HR.Share.PublicShare;
+using HR.Share.PublicShare.BaseClass;
 using HR.Share.PublicShare.BaseClass.AbstractClass;
-using HR.Share.PublicShare.StaticBase.ClimbData;
+using HR.Share.PublicShare.Event;
+using Prism.Events;
 using Prism.Regions;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
-using System.Windows.Media;
 using Unity;
 
 namespace HomePage.ViewModels
@@ -19,12 +13,14 @@ namespace HomePage.ViewModels
     /// <summary>
     /// MyINavigationAware
     /// </summary>
-    public class HomePageViewModel : CustomICommand
+    public class HomePageViewModel : ViewModelBase
     {
         #region 私有属性
         private bool _canNavigation = false;
         private readonly IRegionManager _regionManager;
         private readonly IUnityContainer _unityContainer;
+        private IEventAggregator _ea;
+
         #endregion
         #region 公有属性
         public bool CanNavigation
@@ -38,11 +34,20 @@ namespace HomePage.ViewModels
 
         #endregion
         #region 初始化
-        public HomePageViewModel(IRegionManager regionManager, IUnityContainer unityContainer)
+        public HomePageViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator ea)
         {
             _regionManager = regionManager;
             _unityContainer = unityContainer;
-            ConfigureRegionManager();
+            _ea = ea;
+            this.Title = "首页";
+            this.CanClose = false;
+            this.CanTogglePin = false;
+            this.CanMove = false;
+            //MessageDictionaryBase messageDictionaryBase = new MessageDictionaryBase();
+            //messageDictionaryBase.Key = MessageNames.Notification;
+            //messageDictionaryBase.Value = new List<string> { "首页", "加载成功！", String.Format("Time: {0}", DateTime.Now) };
+            //_ea.GetEvent<MessageDictionarySentEvent>().Publish(messageDictionaryBase);
+            //ConfigureRegionManager();
         }
         public void ConfigureRegionManager()
         {

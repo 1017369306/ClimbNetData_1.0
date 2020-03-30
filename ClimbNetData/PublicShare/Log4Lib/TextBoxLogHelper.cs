@@ -1,12 +1,9 @@
-﻿using System;  
-using System.Collections.Generic;  
-using System.Linq;  
-using System.Text;  
-using log4net.Appender;  
-using System.Windows.Forms;  
-using log4net.Core;  
+﻿using log4net.Appender;
+using log4net.Core;
 using log4net.Layout;
+using System;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace Log4Lib
 {

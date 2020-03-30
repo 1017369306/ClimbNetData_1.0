@@ -38,6 +38,15 @@
     <Reference Include="CommonServiceLocator, Version=2.0.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\CommonServiceLocator.2.0.4\lib\net45\CommonServiceLocator.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.Data.v19.1, Version=19.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Mvvm.v19.1, Version=19.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Accordion.v19.1, Version=19.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Controls.v19.1, Version=19.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Core.v19.1, Version=19.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v19.1, Version=19.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\DevExpress19.1\DevExpress.XtraBars.v19.1.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
@@ -176,9 +185,9 @@
       <Project>{d4f427f4-1d58-429f-80f3-24cbe0af518f}</Project>
       <Name>HomePage</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Modules\ModuleIndexs\ClimbWebSiteIndex1\ClimbWebSiteIndexs.csproj">
-      <Project>{32C5B924-1585-425A-86C9-49E9890CC0EB}</Project>
-      <Name>ClimbWebSiteIndexs</Name>
+    <ProjectReference Include="..\Modules\MyTask\MyTask.csproj">
+      <Project>{812836ed-eccd-4734-b8f6-5421defd8104}</Project>
+      <Name>MyTask</Name>
     </ProjectReference>
     <ProjectReference Include="..\Modules\PrismUICommon\PrismUICommon.csproj">
       <Project>{df4d7136-9163-4e56-bcaa-9ed6211f7da8}</Project>

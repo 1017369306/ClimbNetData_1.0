@@ -2,6 +2,98 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:PublicResources.Resources.Styles">
 
+    
+    <!--#region Button-->
+
+    <Style x:Key="CloseBtnStyle" TargetType="Button">
+        <Setter Property="Width" Value="40"/>
+        <Setter Property="Height" Value="20"/>
+        <!--<Setter Property="HorizontalAlignment" Value="Right"/>-->
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <!--<Setter Property=""-->
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid x:Name="BtnGrid">
+                        <Image x:Name="BtnImage" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}"
+                                    Source="/PublicResources;component/Resources/Images/关闭.png" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="BtnGrid" Property="Background" Value="#FF9DACB4"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="MinBtnStyle" TargetType="Button">
+        <Setter Property="Width" Value="40"/>
+        <Setter Property="Height" Value="20"/>
+        <!--<Setter Property="HorizontalAlignment" Value="Right"/>-->
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid x:Name="BtnGrid">
+                        <Image x:Name="BtnImage" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}"
+                                    Source="/PublicResources;component/Resources/Images/最小化.png" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="BtnGrid" Property="Background" Value="#FF9DACB4"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="MaxBtnStyle" TargetType="Button">
+        <Setter Property="Width" Value="40"/>
+        <Setter Property="Height" Value="20"/>
+        <!--<Setter Property="HorizontalAlignment" Value="Right"/>-->
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid x:Name="BtnGrid">
+                        <Image x:Name="BtnImage" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}"
+                                    Source="/PublicResources;component/Resources/Images/最大化.png" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="BtnGrid" Property="Background" Value="#FF9DACB4"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--<Style x:Key="MenuBtn" TargetType="Button">
+        --><!--<Setter Property="Name" Value="MenuBtn"/>--><!--
+        <Setter Property="BorderThickness" Value="0,0,0,0.5"/>
+        <Setter Property="BorderBrush" Value="Black"/>
+        <Setter Property="MinWidth" Value="100"/>
+        <Setter Property="Command" Value="{Binding MenuCommand}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid x:Name="MenuBtnTemplate" MinHeight="20" Background="Transparent" Cursor="Hand" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="{TemplateBinding Content}" Foreground="White" FontSize="12"></TextBlock>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                --><!--FF0C35EC--><!--
+                <Setter Property="Background" Value="Red"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>-->
+    <!--#endregion-->
+    
     <Style x:Key="LabelStyle1" TargetType="Label">
 
         <Style.Setters>
@@ -37,13 +129,6 @@
                 </Trigger.Setters>
             </Trigger>
         </Style.Triggers>
-    </Style>
-
-    <Style x:Key="ceshi" TargetType="Button">
-        <Style.Setters>
-            <Setter Property="FontSize" Value="24"/>
-            <Setter Property="Content" Value="测试"/>
-        </Style.Setters>
     </Style>
 
     <Style x:Key="BtnEllipse" TargetType="Ellipse">

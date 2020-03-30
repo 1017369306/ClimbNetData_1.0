@@ -1,17 +1,16 @@
-﻿using Prism.Ioc;
+﻿using ClimbNetData.ViewModels;
+using HR.Share.PublicShare;
+using Prism.Ioc;
 using Prism.Modularity;
-using Prism.Mvvm;
-using Prism.Unity;
-using System.Windows;
-using System;
-using System.Reflection;
 using Prism.Regions;
-using System.Windows.Controls;
-using PrismUICommon.UsingCompositeCommands.Core;
-using Xceed.Wpf.AvalonDock.Layout;
+using Prism.Unity;
 using PrismUICommon.CustomRegionAdapter;
+using PrismUICommon.UsingCompositeCommands.Core;
+using System;
+using System.Windows;
+using System.Windows.Controls;
 using Xceed.Wpf.AvalonDock;
-using ClimbNetData.ViewModels;
+using Xceed.Wpf.AvalonDock.Layout;
 
 namespace ClimbNetData
 {
@@ -34,6 +33,11 @@ namespace ClimbNetData
         {
             //base.InitializeShell(shell);
             shellViewModel.ConfigureRegionManager();
+        }
+        protected override void OnInitialized()
+        {
+            base.OnInitialized();
+            InitConfig();
         }
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
@@ -68,6 +72,8 @@ namespace ClimbNetData
 
             //moduleCatalog.AddModule<PrismUICommon.PrismUICommonModule>();
             moduleCatalog.AddModule<HomePage.HomePageModule>();
+            moduleCatalog.AddModule<MyTask.MyTaskModule>();
+
             moduleCatalog.AddModule<PrismUICommon.PrismUICommonModule>();
 
         }
@@ -117,6 +123,20 @@ namespace ClimbNetData
         //    string text = fullName.EndsWith("View") ? "Model" : "ViewModel";
         //    return Type.GetType(string.Format(CultureInfo.InvariantCulture, "{0}{1}, {2}", fullName, text, fullName2));
         //};
+        #endregion
+
+        #region 加载配置或其他最后需要加载的设置
+        private void InitConfig()
+        {
+            try
+            {
+                GlobalClass.MyRunPath = AppDomain.CurrentDomain.BaseDirectory;
+            }
+            catch (Exception ex)
+            {
+                Log4Lib.LogHelper.WriteLog(ex.Message, ex);
+            }
+        }
         #endregion
 
     }

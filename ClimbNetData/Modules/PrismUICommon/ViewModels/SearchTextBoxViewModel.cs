@@ -1,18 +1,15 @@
 ﻿using HR.Share.PublicShare;
+using HR.Share.PublicShare.BaseClass;
+using HR.Share.PublicShare.BaseClass.AbstractClass;
 using Prism.Regions;
-using PrismUICommon.BaseClass;
 using PrismUICommon.Interface;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using Unity;
 
 namespace PrismUICommon.ViewModels
 {
-    public class SearchTextBoxViewModel : CustomICommand, MyINavigationAware
+    public class SearchTextBoxViewModel : ViewModelBase, MyINavigationAware
     {
         #region 私有属性
         private bool _canNavigation = false;

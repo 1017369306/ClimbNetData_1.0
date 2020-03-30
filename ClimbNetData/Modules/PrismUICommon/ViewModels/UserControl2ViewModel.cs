@@ -1,5 +1,4 @@
 ﻿using HR.Share.PublicShare.Event;
-using Prism.Commands;
 using Prism.Events;
 using Prism.Mvvm;
 using System.Collections.ObjectModel;

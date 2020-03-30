@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace HR.Share.Forms
 {
-    public class BasePanel:UserControl
+    public class BasePanel : UserControl
     {
 
     }

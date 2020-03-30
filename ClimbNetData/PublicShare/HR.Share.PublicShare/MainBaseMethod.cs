@@ -1,17 +1,16 @@
 ﻿using HR.Share.PublicShare.BaseClass.AbstractClass;
+using HR.Share.PublicShare.BaseClass.Interface;
 using Log4Lib;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Threading;
 using Xceed.Wpf.AvalonDock.Layout;
 
@@ -62,6 +61,43 @@ namespace HR.Share.PublicShare
         #endregion
 
         #region static method
+        /// <summary>
+        /// 获得Module
+        /// </summary>
+        /// <param name="Content">菜单content</param>
+        /// <param name="args">指定构造函数的参数</param>
+        /// <returns></returns>
+        public static object GetModule(string Content, params object[] args)
+        {
+            try
+            {
+                IModuleBase imoduleBase = null;
+                string[] _moduleFiles = Directory.GetFiles(GlobalClass.MyModulePath, "*.dll", SearchOption.AllDirectories);
+                if (_moduleFiles != null && _moduleFiles.Length > 0)
+                {
+                    foreach (string item in _moduleFiles)
+                    {
+                        imoduleBase = (IModuleBase)Helper.GetIntanceFormAssembly(item, typeof(IModuleBase), args);
+                        if (imoduleBase == null)
+                        {
+                            continue;
+                        }
+                        GlobalClass.MenuItems menu = imoduleBase.menuItem;
+                        if (GetEnumDescription(menu).Equals(Content))
+                        {
+                            break;
+                        }
+                    }
+                }
+                return imoduleBase;
+            }
+            catch (Exception ex)
+            {
+                LogHelper.WriteLog(ex.Message, ex);
+                return null;
+            }
+        }
+
         /// <summary>
         /// 根据字符串获取brush颜色对象
         /// </summary>
@@ -124,11 +160,11 @@ namespace HR.Share.PublicShare
         #endregion
 
 
-        public static string GetJdGoodsCommentJsUrl(object type, string productId, int pageIndex,int pageSize)
+        public static string GetJdGoodsCommentJsUrl(object type, string productId, int pageIndex, int pageSize)
         {
             try
             {
-                string JdGoodsCommentJsUrl = "https://" + type.ToString() + ".jd.com/comment/productPageComments.action?callback="+ CommentHeader + "&productId=" + productId + "&score=0&sortType=5&page=" + pageIndex + "&pageSize=" + pageSize + "&isShadowSku=0&rid=0&fold=1";//rid为全查，没有为只查前1000条
+                string JdGoodsCommentJsUrl = "https://" + type.ToString() + ".jd.com/comment/productPageComments.action?callback=" + CommentHeader + "&productId=" + productId + "&score=0&sortType=5&page=" + pageIndex + "&pageSize=" + pageSize + "&isShadowSku=0&rid=0&fold=1";//rid为全查，没有为只查前1000条
                 return JdGoodsCommentJsUrl;
             }
             catch (Exception ex)
@@ -303,7 +339,7 @@ namespace HR.Share.PublicShare
         /// <typeparam name="T"></typeparam>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public static string WriteLineList<T>(T entity,int flag)
+        public static string WriteLineList<T>(T entity, int flag)
         {
             try
             {
@@ -336,7 +372,7 @@ namespace HR.Share.PublicShare
                     }
                     else
                     {
-                        str.Append((value != null ? (value.ToString()+ interval) : interval));
+                        str.Append((value != null ? (value.ToString() + interval) : interval));
                     }
                 }
                 return str.ToString();
@@ -526,7 +562,7 @@ namespace HR.Share.PublicShare
                 {
                     lock (control)
                     {
-                        if(control is System.Windows.Forms.TextBox)
+                        if (control is System.Windows.Forms.TextBox)
                         {
                             System.Windows.Forms.TextBox txt = (System.Windows.Forms.TextBox)control;
                             txt.AppendText(value + "\r\n");

@@ -1,46 +1,138 @@
 ﻿using HR.Share.PublicShare;
+using HR.Share.PublicShare.BaseClass;
 using HR.Share.PublicShare.BaseClass.AbstractClass;
+using HR.Share.PublicShare.BaseClass.Interface;
+using HR.Share.PublicShare.Event;
 using Prism.Commands;
+using Prism.Events;
 using Prism.Regions;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Controls;
 using Unity;
 
 namespace ClimbNetData.ViewModels
 {
-    public class MenuExpanderViewModel : CustomICommand
+    public class MenuExpanderViewModel : ViewModelBase
     {
+        #region 变量
         IRegionManager _regionManager;
         IUnityContainer _unityContainer;
+        private object[] _params;
+        private IEventAggregator _ea;
 
-        public DelegateCommand MenuCommand { get; set; }
-
-        public MenuExpanderViewModel(IRegionManager regionManager, IUnityContainer unityContainer)
+        public object[] Params
         {
-            _regionManager = regionManager;
-            _unityContainer = unityContainer;
-            MenuCommand = new DelegateCommand(MenuClick, CanExecute);
+            get => _params; set
+            {
+                _params = value;
+            }
         }
-        private void MenuClick()
+        #endregion
+
+        #region DelegateCommand
+        public DelegateCommand<Button> MenuCommand { get; set; }
+
+        public DelegateCommand<Grid> MenuItemsLoadedCommand { get { return new DelegateCommand<Grid>(MenuItemsLoaded); } }
+        public DelegateCommand ShowPredefinedCommand
         {
-            IRegion detailsRegion = null;
+            get
+            {
+                return new DelegateCommand(ShowPredefined);
+            }
+        }
+
+        private void ShowPredefined()
+        {
             try
             {
-                //HomePage.Views.HomePage homePage = this._unityContainer.Resolve<HomePage.ViewModels.HomePageViewModel>();
-                IRegionManager newRegionManager = this._regionManager.CreateRegionManager();
-                detailsRegion = this._regionManager.Regions[RegionNames.ContentRegion];
-                this._regionManager = newRegionManager;
-                HomePage.Views.HomePage homePage = new HomePage.Views.HomePage();
-                //newRegionManager.RegisterViewWithRegion("HomePage", this._unityContainer.Resolve<HomePage.HomePageModule>());
-                IRegionManager detailsRegionManager = newRegionManager.Regions["HomePage"].Add(homePage, null, true);
-                //this._regionManager = detailsRegionManager;
+                Log4Lib.LogHelper.WriteLog("测试");
+
+                //this.ShowNotification("菜单", "加载成功", String.Format("Time: {0}", DateTime.Now), null);
+
+                //MessageDictionaryBase messageDictionaryBase = new MessageDictionaryBase();
+                //messageDictionaryBase.Key = MessageNames.Notification;
+                //messageDictionaryBase.Value = new List<string> { "菜单", "加载成功！", String.Format("Time: {0}", DateTime.Now) };
+                //_ea.GetEvent<MessageDictionarySentEvent>().Publish(messageDictionaryBase);
             }
             catch (Exception ex)
             {
+                Log4Lib.LogHelper.WriteLog(ex.Message, ex);
+            }
+        }
+
+
+        #endregion
+
+        #region 初始化
+        public MenuExpanderViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator ea)
+        {
+            _regionManager = regionManager;
+            _unityContainer = unityContainer;
+            _ea = ea;
+            Params = new object[] { _regionManager, _unityContainer };
+            MenuCommand = new DelegateCommand<Button>(MenuClick, CanClickMenu);
+        }
+        #endregion
+
+        #region 事件
+        /// <summary>
+        /// 加载菜单项
+        /// </summary>
+        /// <param name="grid"></param>
+        private void MenuItemsLoaded(Grid grid)
+        {
+            try
+            {
                 return;
+                List<GlobalClass.MenuItems> menuItems = MainBaseMethod.foreachEnum<GlobalClass.MenuItems>();
+                int menuCount = menuItems.Count;
+                RowDefinitionCollection rowDefinitions = grid.RowDefinitions;
+                for (int i = 0; i < menuCount; i++)
+                {
+                    RowDefinition newRow = new RowDefinition();
+                    newRow.Height = new System.Windows.GridLength(40);
+                    rowDefinitions.Add(newRow);
+                }
+                for (int i = 0; i < menuItems.Count; i++)
+                {
+                    Button button = new Button();
+                    button.Content = MainBaseMethod.GetEnumDescription(menuItems[i]);
+                    button.Style = (System.Windows.Style)System.Windows.Application.Current.FindResource("MenuBtn");
+                    grid.Children.Add(button);
+                    //设置行号
+                    Grid.SetRow(button, i + 1);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log4Lib.LogHelper.WriteLog(ex.Message, ex);
+            }
+        }
+
+        private void MenuClick(Button button)
+        {
+            try
+            {
+                object obj = MainBaseMethod.GetModule(button.Content.ToString(), Params);
+                if (obj == null)
+                {
+                    Log4Lib.LogHelper.WriteErrorLog("模块加载异常！");
+                    return;
+                }
+                IModuleBase imoduleBase = (IModuleBase)obj;
+                imoduleBase.Load();
+
+                //IRegion detailsRegion = this._regionManager.Regions[RegionNames.ContentRegion];
+                //HomePage.Views.HomePage view = new HomePage.Views.HomePage();
+                //bool createRegionManagerScope = true;
+                //IRegionManager detailsRegionManager = detailsRegion.Add(view, null,
+                //                            createRegionManagerScope);
+                //detailsRegionManager.Regions[RegionNames.SearchText].Add(new PrismUICommon.Views.SearchTextBox());
+            }
+            catch (Exception ex)
+            {
+                Log4Lib.LogHelper.WriteLog(ex.Message, ex);
             }
 
             //HomePage.Views.HomePage homePage = new HomePage.Views.HomePage();
@@ -55,7 +147,15 @@ namespace ClimbNetData.ViewModels
 
             //_regionManager.Regions[RegionNames.ContentRegion].Add(_unityContainer.Resolve<HomePage.Views.HomePage>());
         }
+        public bool CanClickMenu(Button button)
+        {
+            return true;
+        }
 
+
+        #endregion
+
+        #region override
         public override bool CanExecute()
         {
             return true;
@@ -70,6 +170,6 @@ namespace ClimbNetData.ViewModels
         {
             throw new NotImplementedException();
         }
-
+        #endregion
     }
 }

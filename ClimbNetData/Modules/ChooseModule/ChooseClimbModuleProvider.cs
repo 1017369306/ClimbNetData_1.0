@@ -1,18 +1,12 @@
-﻿using HR.Share.PublicShare;
-using HR.Share.PublicShare.BaseClass.AbstractClass;
+﻿using HR.Share.PublicShare.BaseClass.AbstractClass;
 using HR.Share.PublicShare.BindingData;
-using HR.Share.PublicShare.StaticBase.ClimbData;
 using Log4Lib;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 
 namespace ChooseModule
 {
-    public class ChooseClimbModuleProvider: ClimbWebSiteIndexBaseClass
+    public class ChooseClimbModuleProvider : ClimbWebSiteIndexBaseClass
     {
         #region 属性
         ChooseClimbModule _content = null;
@@ -30,7 +24,7 @@ namespace ChooseModule
             _content = new ChooseClimbModule(this);
             this.Title = "选择模板";
             Load();
-        }  
+        }
 
         /// <summary>
         /// 动态初始化模板信息

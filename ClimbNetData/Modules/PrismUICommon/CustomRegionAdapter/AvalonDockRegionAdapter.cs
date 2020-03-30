@@ -1,11 +1,10 @@
-﻿using HR.Share.PublicShare.BaseClass.AbstractClass;
+﻿using HR.Share.PublicShare.BaseClass;
+using HR.Share.PublicShare.BaseClass.AbstractClass;
 using Prism.Regions;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using Xceed.Wpf.AvalonDock;
 using Xceed.Wpf.AvalonDock.Layout;
@@ -69,15 +68,19 @@ namespace PrismUICommon.CustomRegionAdapter
                         //Set the content of the LayoutDocument
                         newLayoutDocument.Content = item;
 
-                        CustomICommand viewModel = (CustomICommand)item.DataContext;
+                        ViewModelBase viewModel = (ViewModelBase)item.DataContext;
 
                         if (viewModel != null)
                         {
                             //All my viewmodels have properties DisplayName and IconKey
-                            newLayoutDocument.Title = viewModel.DisplayName;
+                            newLayoutDocument.Title = viewModel.Title;
                             //GetImageUri is custom made method which gets the icon for the LayoutDocument
                             //newLayoutDocument.IconSource = this.GetImageUri(viewModel.IconKey);
                             newLayoutDocument.IconSource = viewModel.IconKey;
+                            newLayoutDocument.CanClose = viewModel.CanClose;
+                            newLayoutDocument.CanFloat = viewModel.CanFloat;
+                            newLayoutDocument.CanMove = viewModel.CanMove;
+                            newLayoutDocument.CanTogglePin = viewModel.CanTogglePin;
                         }
 
                         //Store all LayoutDocuments already pertaining to the LayoutDocumentPane (defined in xaml)

@@ -1,16 +1,13 @@
-﻿using Prism.Modularity;
-//using Prism.Mef.Modularity;
-using Prism.Regions;
-using System.ComponentModel.Composition;
-using Prism.Ioc;
-using System.Windows;
-using Maticsoft.Model;
-using System;
-using System.ComponentModel;
-using System.Collections.ObjectModel;
+﻿//using Prism.Mef.Modularity;
 using HR.Share.PublicShare.BindingData;
-using System.Windows.Data;
+using Maticsoft.Model;
+using Prism.Regions;
 using PrismUICommon.BaseClass;
+using System;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Windows;
+using System.Windows.Data;
 
 namespace PrismUICommon.ViewModels
 {

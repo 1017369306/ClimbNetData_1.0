@@ -1,16 +1,7 @@
-﻿using HR.Share.PublicShare;
-using HR.Share.PublicShare.StaticBase.ClimbData;
-using Prism.Regions;
+﻿using Prism.Regions;
 using PrismUICommon.BaseClass;
 using PrismUICommon.Interface;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows.Input;
-using System.Windows.Media;
 
 namespace PrismUICommon.ViewModels
 {
@@ -88,7 +79,7 @@ namespace PrismUICommon.ViewModels
         //{
         //    try
         //    {
-                
+
         //        Label label = (Label)sender;//FF3C55C5 #FFFFFFFF
         //        UIElementCollection collection = this.ModuleTypes.Children;
         //        foreach (System.Windows.Controls.Control item in collection)

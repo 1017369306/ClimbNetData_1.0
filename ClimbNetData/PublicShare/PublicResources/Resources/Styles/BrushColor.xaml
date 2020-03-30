@@ -12,7 +12,15 @@
     <SolidColorBrush x:Key="Transparent" Color="#00000000"/>
     <!--灰色-->
     <SolidColorBrush x:Key="Gray" Color="#FF8D8D8D"/>
-
-    <s:String x:Key="text">ceshi</s:String>
     
+    <Image x:Key="InfoImage" Source="/PublicResources;component/Resources/Images/信息_128_128.png"/>
+    <Image x:Key="ErrorImage" Source="/PublicResources;component/Resources/Images/错误_128_128.png"/>
+    <Image x:Key="WarningImage" Source="/PublicResources;component/Resources/Images/警告_128_128.png"/>
+    <Image x:Key="QuestionImage" Source="/PublicResources;component/Resources/Images/问题_128_128.png"/>
+    
+    <s:String x:Key="InfoTitle">信息</s:String>
+    <s:String x:Key="ErrorTitle">错误</s:String>
+    <s:String x:Key="WarningTitle">警告</s:String>
+    <s:String x:Key="QuestionTitle">问题</s:String>
+
 </ResourceDictionary>
