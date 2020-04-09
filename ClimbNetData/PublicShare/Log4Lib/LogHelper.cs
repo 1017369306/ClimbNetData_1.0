@@ -1,7 +1,9 @@
 ﻿using DevExpress.Mvvm.DataAnnotations;
+using DevExpress.Mvvm.POCO;
 using DevExpress.Mvvm.UI;
 using log4net.Layout;
 using System;
+using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Media;
 
@@ -13,7 +15,28 @@ namespace Log4Lib
         private static readonly log4net.ILog logerror = log4net.LogManager.GetLogger("logerror");//这里的 logerror 和 log4net.config 里的名字要一样
         private static bool isAppendTextBox = false;
 
+        private static CustomToastViewModel customToastViewModel { get; set; }
+        private static string CustomNotificationText { get; set; }
+        private static double CustomNotificationWidth { get; set; }
+        private static double CustomNotificationHeight { get; set; }
+        private static Color CustomNotificationBackground { get; set; }
+        private static SolidColorBrush CustomNotificationBackgroundBrush { get; set; }
+
         private static NotificationService _myNotificationService;
+        private static void InitNotificationService()
+        {
+            try
+            {
+                CustomNotificationWidth = 380;
+                CustomNotificationHeight = 100;
+                CustomNotificationBackground = Color.FromRgb(34, 188, 234);
+                CustomNotificationBackgroundBrush= new SolidColorBrush { Color = CustomNotificationBackground };
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
         /// <summary>
         /// 右下角提示框对象
         /// </summary>
@@ -24,9 +47,18 @@ namespace Log4Lib
             {
                 if (_myNotificationService == null)
                 {
+                    InitNotificationService();
+                    //加载资源词典
+                    //ResourceDictionary resourceDictionary = new ResourceDictionary();
+                    //System.Windows.Application.LoadComponent(resourceDictionary, new Uri("/Log4Lib;component/Style/CustomNotificationTemplate.xaml", UriKind.Relative));
+                    //System.Windows.Application.Current.Resources.MergedDictionaries.Add(resourceDictionary);
+
                     _myNotificationService = new NotificationService();
                     _myNotificationService.ApplicationId = "sample_notification_app";
-                    _myNotificationService.PredefinedNotificationTemplate = NotificationTemplate.ShortHeaderAndTwoTextFields;
+                    _myNotificationService.CustomNotificationTemplate = (DataTemplate)System.Windows.Application.Current.FindResource("CustomNotificationTemplate");
+                    _myNotificationService.CustomNotificationStyle = (Style)System.Windows.Application.Current.FindResource("CustomNotificationStyle");
+                    _myNotificationService.CustomNotificationScreen = NotificationScreen.Primary;
+                    //_myNotificationService.PredefinedNotificationTemplate = NotificationTemplate.ShortHeaderAndTwoTextFields;
                     _myNotificationService.CustomNotificationPosition = NotificationPosition.BottomRight;
                 }
                 return _myNotificationService;
@@ -66,8 +98,22 @@ namespace Log4Lib
                 //string text2 = "In ornare ante magna, eget volutpat mi bibendum a. Nam ut ullamcorper libero. Pellentesque habitant.";
                 //string text3 = "Quisque sapien odio, mollis tincidunt est id, fringilla euismod neque. Aenean adipiscing lorem dui, nec. ";
                 if (MyNotificationService == null) return;
-                DevExpress.Mvvm.INotification notification = MyNotificationService.CreatePredefinedNotification(text1, text2, text3, image);
-                notification.ShowAsync();
+                //DevExpress.Mvvm.INotification notification = MyNotificationService.CreatePredefinedNotification(text1, text2, text3, image);
+                //notification.ShowAsync();
+
+                customToastViewModel = ViewModelSource.Create(() => new CustomToastViewModel
+                {
+                    Text1 = text1,
+                    Text2 = text2,
+                    Text3 = text3,
+                    Image = image,
+                    Width = CustomNotificationWidth,
+                    Height = CustomNotificationHeight,
+                    Background = CustomNotificationBackgroundBrush
+                });
+
+                DevExpress.Mvvm.INotification CustomNotification = MyNotificationService.CreateCustomNotification(customToastViewModel);
+                CustomNotification.ShowAsync();
             }
             catch (Exception ex)
             {
@@ -225,5 +271,17 @@ namespace Log4Lib
                 isAppendTextBox = true;
             }
         }
+    }
+
+    [POCOViewModel]
+    public class CustomToastViewModel
+    {
+        public virtual string Text1 { get; set; }
+        public virtual string Text2 { get; set; }
+        public virtual string Text3 { get; set; }
+        public virtual ImageSource Image { get; set; }
+        public virtual double Height { get; set; }
+        public virtual double Width { get; set; }
+        public virtual SolidColorBrush Background { get; set; }
     }
 }

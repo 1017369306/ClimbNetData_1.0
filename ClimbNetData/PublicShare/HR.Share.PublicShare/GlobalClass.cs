@@ -135,7 +135,7 @@ namespace HR.Share.PublicShare
             [DescriptionAttribute("我的任务")]
             MyTask,
             [DescriptionAttribute("数据抓取")]
-            ClimbNet,
+            ClimbData,
             [DescriptionAttribute("团队协作")]
             TeamCooperation,
             [DescriptionAttribute("定制数据")]

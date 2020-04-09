@@ -2,6 +2,7 @@
 using PrismUICommon.BaseClass;
 using PrismUICommon.Interface;
 using System;
+using Unity;
 
 namespace PrismUICommon.ViewModels
 {
@@ -9,6 +10,8 @@ namespace PrismUICommon.ViewModels
     {
         #region 私有属性
         private bool _canNavigation = false;
+        private readonly IRegionManager _regionManager;
+        private readonly IUnityContainer _unityContainer;
 
         #endregion
         #region 公有属性
@@ -23,9 +26,10 @@ namespace PrismUICommon.ViewModels
 
         #endregion
         #region 初始化
-        public WebSiteTypeAndSortViewModel()
+        public WebSiteTypeAndSortViewModel(IRegionManager regionManager, IUnityContainer unityContainer)
         {
-
+            _regionManager = regionManager;
+            _unityContainer = unityContainer;
         }
 
         #endregion

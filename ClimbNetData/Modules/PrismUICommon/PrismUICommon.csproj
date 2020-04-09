@@ -97,6 +97,7 @@
     <Compile Include="CustomRegionAdapter\AvalonDockRegionAdapter.cs" />
     <Compile Include="CustomRegionAdapter\LayoutDocumentPaneRegionAdapter.cs" />
     <Compile Include="CustomRegionAdapter\StackPanelRegionAdapter.cs" />
+    <Compile Include="CustomRegionAdapter\WrapPanelRegionAdapter.cs" />
     <Compile Include="Interface\MyINavigationAware.cs" />
     <Compile Include="PrismUICommonModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

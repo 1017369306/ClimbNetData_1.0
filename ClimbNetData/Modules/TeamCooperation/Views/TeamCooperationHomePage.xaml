@@ -4,9 +4,45 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TeamCooperation.Views"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1">
+            <Grid RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <!--旋转-->
+                    <RotateTransform Angle="{Binding ElementName=angle, Path=Value}"/>
+                </Grid.RenderTransform>
+                <!--圆角半径-->
+                <Border Name="mask" CornerRadius="{Binding ElementName=cornerRadius, Path=Value}" Background="White"/>
+                <Grid>
+                    <!--参考https://msdn.microsoft.com/zh-cn/library/bb979637(v=vs.95).aspx-->
+                    <Grid.OpacityMask>
+                        <VisualBrush Visual="{Binding ElementName=mask}"/>
+                    </Grid.OpacityMask>
+                    <!--这里可以放任何内容,均可实现圆角-->
+                    <Image Source="pack://application:,,,/PublicResources;component/Resources/Images/jd.jpg"/>
+                </Grid>
+            </Grid>
+        </Grid>
+        <!--控制按钮-->
+        <Grid Grid.Row="0" Background="#A0FFFFFF">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="Corner radius"/>
+            <Slider Grid.Column="1" Name="cornerRadius" Minimum="0" Maximum="400" Margin="5,0,5,0"/>
+            <TextBlock Grid.Column="2" Text="Angle" Margin="5,0,0,0"/>
+            <Slider Grid.Column="3" Name="angle" Minimum="0" Maximum="360" Margin="5,0,0,0"/>
+        </Grid>
     </Grid>
 </UserControl>

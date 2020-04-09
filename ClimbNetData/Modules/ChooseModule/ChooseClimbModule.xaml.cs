@@ -7,15 +7,9 @@ namespace ChooseModule
     /// </summary>
     public partial class ChooseClimbModule : UserControl
     {
-
-        #region 属性
-        ChooseClimbModuleProvider _provider = null;
-        #endregion
-
-        public ChooseClimbModule(ChooseClimbModuleProvider provider)
+        public ChooseClimbModule()
         {
             InitializeComponent();
-            this._provider = provider;
         }
     }
 }

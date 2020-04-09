@@ -21,7 +21,6 @@ namespace ChooseModule
         #region 初始化
         public ChooseClimbModuleProvider()
         {
-            _content = new ChooseClimbModule(this);
             this.Title = "选择模板";
             Load();
         }

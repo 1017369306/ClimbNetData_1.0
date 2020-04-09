@@ -1,11 +1,16 @@
 ﻿using HR.Share.PublicShare;
 using HR.Share.PublicShare.BaseClass;
 using HR.Share.PublicShare.BaseClass.AbstractClass;
+using HR.Share.PublicShare.BaseClass.Interface;
 using HR.Share.PublicShare.Event;
+using Maticsoft.Model;
+using Prism.Commands;
 using Prism.Events;
 using Prism.Regions;
+using PrismUICommon.Views;
 using System;
 using System.Collections.Generic;
+using System.Windows.Controls;
 using Unity;
 
 namespace HomePage.ViewModels
@@ -13,13 +18,15 @@ namespace HomePage.ViewModels
     /// <summary>
     /// MyINavigationAware
     /// </summary>
-    public class HomePageViewModel : ViewModelBase
+    public class HomePageViewModel : ViewModelBase, INavigationAware
     {
         #region 私有属性
         private bool _canNavigation = false;
         private readonly IRegionManager _regionManager;
         private readonly IUnityContainer _unityContainer;
+        IRegionNavigationJournal _journal;
         private IEventAggregator _ea;
+        private object[] _params;
 
         #endregion
         #region 公有属性
@@ -31,8 +38,118 @@ namespace HomePage.ViewModels
                 _canNavigation = value;
             }
         }
-
+        public object[] Params
+        {
+            get => _params; set
+            {
+                _params = value;
+            }
+        }
         #endregion
+
+        private DelegateCommand _webSiteCommand;
+        public DelegateCommand WebSiteCommand
+        {
+            get
+            {
+                //if (_webSiteCommand == null)
+                //    _webSiteCommand = new DelegateCommand(WebSiteClick);
+                return _webSiteCommand;
+            }
+        }
+        public DelegateCommand MoreModelsCommand
+        {
+            get
+            {
+                return new DelegateCommand(MoreModelsClick);
+            }
+        }
+
+        private void MoreModelsClick()
+        {
+            try
+            {
+                IRegion ContentRegion = this._regionManager.Regions[RegionNames.ContentRegion];
+                object obj = this._regionManager.Regions[RegionNames.ContentRegion].GetView(ViewNames.ChooseModel);
+                if (obj == null)
+                {
+                    //Views.ChooseModel chooseModel = new Views.ChooseModel();
+                    //IRegionManager ChooseModelRegionManager = ContentRegion.RegionManager.RegisterViewWithRegion(RegionNames.ContentRegion, typeof(Views.ChooseModel));
+                    //IRegion Region1 = this._regionManager.Regions[RegionNames.ChooseModelRegion];
+                    object chooseModel1 = ContentRegion.GetView(ViewNames.ChooseModel1);
+                    if (chooseModel1 == null)
+                    {
+                        string Content = MainBaseMethod.GetEnumDescription(GlobalClass.MenuItems.ClimbData);
+                        object objModel = MainBaseMethod.GetModule(Content, Params);
+                        if (objModel == null)
+                        {
+                            Log4Lib.LogHelper.WriteErrorLog(Content + "模块加载异常！");
+                            return;
+                        }
+                        IModuleBase imoduleBase = (IModuleBase)objModel;
+                        imoduleBase.Load();
+                        //ContentRegion.Add(this._unityContainer.Resolve<Views.ChooseModel1>(), ViewNames.ChooseModel1, true);
+                    }
+                    else
+                    {
+                        ContentRegion.Activate(chooseModel1);
+                    }
+                    //ShowOrdersView();
+
+                    //IRegionManager ChooseModelRegionManager = this._regionManager.RegisterViewWithRegion(RegionNames.ContentRegion, typeof(Views.ChooseModel));
+                    //Views.ChooseModel1 chooseModel1 = new Views.ChooseModel1();
+                    //IRegionManager ChooseModel1RegionManager = ChooseModelRegionManager.Regions[RegionNames.ChooseModelRegion].Add(chooseModel1, ViewNames.ChooseModel1, true);
+                    //WebSiteTypeAndSort webSiteTypeAndSort = new WebSiteTypeAndSort();
+                    //ChooseModel1RegionManager.Regions[RegionNames.WebSiteTypeAndSort].Add(webSiteTypeAndSort, RegionNames.WebSiteTypeAndSort, true);
+                    //IRegionManager detailsRegionManager = ContentRegion.Add(chooseModel, RegionNames.ChooseModelRegion, true);
+                    //detailsRegionManager.Regions[RegionNames.ChooseModelRegion].Add(new Views.ChooseModel1());
+                    //ContentRegion.Activate(chooseModel);
+                }
+                else
+                {
+                    ContentRegion.Activate(obj);
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        private void ShowOrdersView()
+        {
+            IRegion region = this._regionManager.Regions[RegionNames.ChooseModelRegion];
+
+            object ordersView = region.GetView(ViewNames.ChooseModel1);
+            if (ordersView != null)
+            {
+                region.Activate(ordersView);
+            }
+        }
+
+        public DelegateCommand GoForwardCommand { get; set; }
+        /// <summary>
+        /// 网站按钮点击事件
+        /// </summary>
+        private void WebSiteClick(object sender, System.Windows.RoutedEventArgs e)
+        {
+            try
+            {
+                Button button = (Button)sender;
+                websitebase websitebaseTemp = (websitebase)button.Tag;
+                var parameters = new NavigationParameters();
+                parameters.Add("websitebase", websitebaseTemp);
+
+                if (websitebaseTemp != null)
+                    _regionManager.RequestNavigate(RegionNames.ContentRegion, "ChooseModel1", parameters);
+            }
+            catch (Exception ex)
+            {
+                this.NotificationErrorMsg(ex.Message, null, ex);
+            }
+        }
+
         #region 初始化
         public HomePageViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator ea)
         {
@@ -43,42 +160,14 @@ namespace HomePage.ViewModels
             this.CanClose = false;
             this.CanTogglePin = false;
             this.CanMove = false;
+            GoForwardCommand = new DelegateCommand(GoForward, CanGoForward);
+            Params = new object[] { _regionManager, _unityContainer };
+
             //MessageDictionaryBase messageDictionaryBase = new MessageDictionaryBase();
             //messageDictionaryBase.Key = MessageNames.Notification;
             //messageDictionaryBase.Value = new List<string> { "首页", "加载成功！", String.Format("Time: {0}", DateTime.Now) };
             //_ea.GetEvent<MessageDictionarySentEvent>().Publish(messageDictionaryBase);
             //ConfigureRegionManager();
-        }
-        public void ConfigureRegionManager()
-        {
-            IRegion detailsRegion = null;
-            try
-            {
-                //var regionManager = _unityContainer.Resolve<IRegionManager>();
-                //IRegionManager regionManager1 = ServiceLocator.Current.GetInstance<IRegionManager>();
-                //IRegion SearchText = _regionManager.Regions[RegionNames.SearchText];
-                IRegion SearchText = _regionManager.Regions["HomePage"];
-                PrismUICommon.Views.SearchTextBox searchTextBox = new PrismUICommon.Views.SearchTextBox();
-                SearchText.Add(searchTextBox, null, true);
-                //if (view == null) return;
-                //IRegion region = RegionManager.GetRegionManager(view).Regions[RegionNames.SearchText];
-                //region.Add(new HelloWorldView(), "hello");
-
-                //PrismUICommon.Views.SearchTextBox searchTextBox = new PrismUICommon.Views.SearchTextBox();
-                //detailsRegion.Add(searchTextBox, RegionNames.SearchText, true);
-            }
-            catch (Exception ex)
-            {
-                return;
-            }
-
-            //PrismUICommon.Views.SearchTextBox searchTextBox = new PrismUICommon.Views.SearchTextBox();
-            ////Show a View in a Scoped Region（重复打开相同的嵌套region页面时，需使用Scoped Region来添加）
-            ////IRegionManager detailsRegionManager = detailsRegion.Add(searchTextBox, null, true);
-            //IRegionManager detailsRegionManager = detailsRegion.Add(searchTextBox);
-
-            //detailsRegion.Activate(searchTextBox);
-            //detailsRegion.RegionManager = detailsRegionManager;
         }
 
         #endregion
@@ -99,35 +188,46 @@ namespace HomePage.ViewModels
         }
 
         /// <summary>
-        /// 当实现被导航到时的事件
+        /// 当前的页面被导航到以后发生，这个函数可以用来处理URI的参数。
         /// </summary>
         /// <param name="navigationContext"></param>
         public void OnNavigatedTo(NavigationContext navigationContext)
         {
-            CanNavigation = true;
+            _journal = navigationContext.NavigationService.Journal;
+            GoForwardCommand.RaiseCanExecuteChanged();
         }
 
         /// <summary>
-        /// 以确定此实例是否可以处理导航请求
+        /// 当从其它页面导航至本页面的时候，首先会调用IsNavigationTarget。这个方法的作用就是告诉Prism，是重复使用这个视图的实例还是再创建一个。然后调用OnNavigatedTo方法
         /// </summary>
         /// <param name="navigationContext"></param>
         /// <returns></returns>
         public bool IsNavigationTarget(NavigationContext navigationContext)
         {
-            return CanNavigation;
+            return true;
         }
 
         /// <summary>
-        /// 当实现者被导航离开时调用。
+        /// 当从本页面转到其它页面的时候，会调用OnNavigatedFrom方法
         /// </summary>
         /// <param name="navigationContext"></param>
         public void OnNavigatedFrom(NavigationContext navigationContext)
         {
-            CanNavigation = false;
+            //CanNavigation = false;
         }
         #endregion
 
         #region 事件
+        private void GoForward()
+        {
+            _journal.GoForward();
+        }
+
+        private bool CanGoForward()
+        {
+            return _journal != null && _journal.CanGoForward;
+        }
+
         //private void Label_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         //{
         //    try

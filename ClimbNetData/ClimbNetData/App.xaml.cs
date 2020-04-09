@@ -71,10 +71,13 @@ namespace ClimbNetData
             //});
 
             //moduleCatalog.AddModule<PrismUICommon.PrismUICommonModule>();
-            moduleCatalog.AddModule<HomePage.HomePageModule>();
-            moduleCatalog.AddModule<MyTask.MyTaskModule>();
 
             moduleCatalog.AddModule<PrismUICommon.PrismUICommonModule>();
+            moduleCatalog.AddModule<HomePage.HomePageModule>();
+            moduleCatalog.AddModule<ClimbData.ClimbDataModule>();
+            moduleCatalog.AddModule<MyTask.MyTaskModule>();
+            moduleCatalog.AddModule<TeamCooperation.TeamCooperationHomePageModule>();
+
 
         }
         #endregion
@@ -107,6 +110,7 @@ namespace ClimbNetData
         {
             base.ConfigureRegionAdapterMappings(regionAdapterMappings);
             regionAdapterMappings.RegisterMapping(typeof(StackPanel), Container.Resolve<StackPanelRegionAdapter>());
+            regionAdapterMappings.RegisterMapping(typeof(WrapPanel), Container.Resolve<WrapPanelRegionAdapter>());
             regionAdapterMappings.RegisterMapping(typeof(LayoutDocumentPane), Container.Resolve<LayoutDocumentPaneRegionAdapter>());
             regionAdapterMappings.RegisterMapping(typeof(DockingManager), Container.Resolve<AvalonDockRegionAdapter>());
         }

@@ -84,7 +84,7 @@
 
             </ItemsControl>-->
             <xcad:DockingManager Grid.Row="1" x:Name="DockingManager" BorderBrush="Black" BorderThickness="0"
-                                 Background="#FFE0E4E2" prism:RegionManager.RegionName="{x:Static publicShare:RegionNames.ContentRegion}">
+                                 Background="#FFE0E4E2" DocumentHeaderTemplate="{StaticResource DocumentHeaderTemplate}"  prism:RegionManager.RegionName="{x:Static publicShare:RegionNames.ContentRegion}">
                 <xcad:LayoutRoot x:Name="LayoutRoot">
                     <xcad:LayoutPanel Orientation="Horizontal">
                         <!--工作区-->
@@ -96,8 +96,8 @@
                                         <Interactivity:InvokeCommandAction Command="{Binding LayoutDocumentPaneChangedCommand}" CommandParameter="{Binding ElementName=DocPane1}"/>
                                     </Interactivity:EventTrigger>
                                 </Interactivity:Interaction.Triggers>-->
-                                
-                                    <!--<xcad:LayoutDocument x:Name="_HomePage" CanClose="False" IsActive="True">
+
+                                <!--<xcad:LayoutDocument x:Name="_HomePage" CanClose="False" IsActive="True">
                                 </xcad:LayoutDocument>-->
                             </xcad:LayoutDocumentPane>
                         </xcad:LayoutDocumentPaneGroup>

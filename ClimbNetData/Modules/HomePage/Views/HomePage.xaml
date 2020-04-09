@@ -7,6 +7,7 @@
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True"
              xmlns:publicShare="clr-namespace:HR.Share.PublicShare;assembly=HR.Share.PublicShare"
+             xmlns:Custom="clr-namespace:PublicResources.Resources.Styles.Custom;assembly=PublicResources"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" MinHeight="450" MinWidth="800">
 
@@ -109,10 +110,18 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Label Content="热门采集模板" Grid.Row="0" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <Button Content="更多>>" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="Blue" Command="{Binding MoreModelsCommand}">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <TextBlock Text="{TemplateBinding Content}"></TextBlock>
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
                 <!--<WrapPanel Orientation="Horizontal" Grid.Row="1" x:Name="ModulePanel">-->
                 <Grid Grid.Row="1">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="1*"/>
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="1*"/>
@@ -179,6 +188,92 @@
                             </ControlTemplate>
                         </Button.Template>
                     </Button>
+                    <Custom:ImageButton Grid.Row="0" Grid.Column="2" x:Name="btn_Image" CornerRadius="20"
+                                         HorizontalContentAlignment="Center"  
+                                         VerticalContentAlignment="Center"  
+                                         Background="White"  
+                                         Margin="5,0,5,0" ToolTip="播放" Content="播放"  
+                                         Height="30" Width="80"  
+                                         Icon="pack://application:,,,/PublicResources;component/Resources/Images/jd.jpg"  
+                                         IconMouseOver="pack://application:,,,/PublicResources;component/Resources/Images/taobao.jpg"  
+                                         IconPress="pack://application:,,,/PublicResources;component/Resources/Images/警告_64_64.png"  
+                                         IconHeight="24"  
+                                         IconWidth="24"  
+                                         FontSize="16"  
+                                         IconContentMargin="10,0,0,0"   
+                                         Foreground="#FFFFFF"  
+                                         MouseOverForeground="Gray"  
+                                         MouseDownForeground="Blue"/>
+                    <Custom:WebSiteImageButton Grid.Row="0" Grid.Column="3" CornerRadius="10" 
+                                         HorizontalContentAlignment="Center"  
+                                         VerticalContentAlignment="Center" Background="White"
+                                         Width="88" Height="108" 
+                                         Margin="5,0,5,0" IconMargin="0,10,0,0" ToolTip="京东" Content="京东"  
+                                         Icon="pack://application:,,,/PublicResources;component/Resources/Images/jd.jpg"  
+                                         IconHeightMouseOver="64"
+                                         IconWidthMouseOver="64"
+                                         IconHeight="48"  
+                                         IconWidth="48"  
+                                         FontSize="10"  
+                                         FontSizeMouseOver="12"
+                                         IconContentMargin="0,5,0,5"   
+                                         Foreground="Gray"  
+                                         MouseOverForeground="Black" MouseOverBackground="#FFB0AEAE" />
+                    <Custom:WebSiteImageButton Style="{StaticResource WebSiteImageButton2}" Grid.Row="1" Grid.Column="1" CornerRadius="10" 
+                                         HorizontalContentAlignment="Center"  
+                                         VerticalContentAlignment="Center" Background="White"
+                                         Width="88" Height="108" 
+                                         Margin="5,0,5,0" IconMargin="0,10,0,0" ToolTip="京东" Content="京东"  
+                                         Icon="pack://application:,,,/PublicResources;component/Resources/Images/jd.jpg"  
+                                         IconHeightMouseOver="64"
+                                         IconWidthMouseOver="64"
+                                         IconHeight="48"  
+                                         IconWidth="48"  
+                                         FontSize="10"  
+                                         FontSizeMouseOver="12"
+                                         IconContentMargin="0,5,0,5"   
+                                         Foreground="Black"  
+                                         MouseOverBorderBrush="Blue"/>
+                    <Grid Grid.Row="0" Grid.Column="4">
+                        <Border x:Name="MainBorder" Grid.Row="0" Grid.Column="4" Background="Gray" CornerRadius="10" BorderThickness="1" BorderBrush="Yellow"/>
+                        <Grid VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,5,0,0">
+                            <!--<Grid.OpacityMask>
+                                <VisualBrush Visual="{Binding ElementName=Border}"/>
+                            </Grid.OpacityMask>-->
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="3*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Border x:Name="MyBorder" Background="Gray" CornerRadius="10"/>
+                                <Image Source="pack://application:,,,/PublicResources;component/Resources/Images/jd.jpg" Height="48" Width="48">
+                                    <Image.OpacityMask>
+                                        <VisualBrush Visual="{Binding ElementName=MyBorder}"/>
+                                    </Image.OpacityMask>
+                                </Image>
+                                <TextBlock Grid.Row="1" Text="测试" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="10" Foreground="Black"/>
+                            </Grid>
+                    <!--</Border>-->
+                    </Grid>
+
+                    <Custom:WebSiteImageButton Style="{StaticResource WebSiteImageButton1}" Grid.Row="1" Grid.Column="0"
+                                               CornerRadius="50"
+                                         HorizontalContentAlignment="Center"  
+                                         VerticalContentAlignment="Center" Background="White"
+                                         Width="88" Height="108" 
+                                         Margin="5,0,5,0" IconMargin="0,10,0,0" ToolTip="测试" Content="自定义"  
+                                         Icon="pack://application:,,,/PublicResources;component/Resources/Images/jd.jpg"  
+                                         IconHeightMouseOver="64"
+                                         IconWidthMouseOver="64"
+                                         IconHeight="48"  
+                                         IconWidth="48"  
+                                         FontSize="10"  
+                                         FontSizeMouseOver="12"
+                                         IconContentMargin="0,5,0,5"   
+                                         Foreground="Gray"  
+                                         MouseOverForeground="Black" MouseOverBackground="Gray">
+                        
+                    </Custom:WebSiteImageButton>
+
                 </Grid>
 
                 <!--</WrapPanel>-->

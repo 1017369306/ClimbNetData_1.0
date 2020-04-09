@@ -14,6 +14,22 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>E:\我的资源文件\成都华日文档\项目\爬虫\ClimbNetDataWpf_V1\ClimbNetData_1.0\Release\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +49,21 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>CuttleFish.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>998D1744177A73F6C22A68636B1AE875F956500F</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>ClimbNetData_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CommonServiceLocator, Version=2.0.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
@@ -166,6 +197,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClimbNetData_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -181,6 +213,10 @@
       <Name>ChooseModule</Name>
       <Private>True</Private>
     </ProjectReference>
+    <ProjectReference Include="..\Modules\ClimbData\ClimbData.csproj">
+      <Project>{1a20928e-9e40-491d-b2e1-476aa4a9c648}</Project>
+      <Name>ClimbData</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Modules\HomePage\HomePage.csproj">
       <Project>{d4f427f4-1d58-429f-80f3-24cbe0af518f}</Project>
       <Name>HomePage</Name>
@@ -192,6 +228,10 @@
     <ProjectReference Include="..\Modules\PrismUICommon\PrismUICommon.csproj">
       <Project>{df4d7136-9163-4e56-bcaa-9ed6211f7da8}</Project>
       <Name>PrismUICommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\TeamCooperation\TeamCooperation.csproj">
+      <Project>{c9836bef-ead6-4c25-b53c-b9c20faf9e0c}</Project>
+      <Name>TeamCooperation</Name>
     </ProjectReference>
     <ProjectReference Include="..\PublicShare\HR.Share.PublicShare\HR.Share.PublicShare.csproj">
       <Project>{5DF8E10A-ECAC-4835-8962-A83530400421}</Project>
@@ -210,6 +250,17 @@
   <ItemGroup>
     <Resource Include="CuttleFish.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

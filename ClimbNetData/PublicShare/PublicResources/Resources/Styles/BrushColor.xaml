@@ -13,10 +13,10 @@
     <!--灰色-->
     <SolidColorBrush x:Key="Gray" Color="#FF8D8D8D"/>
     
-    <Image x:Key="InfoImage" Source="/PublicResources;component/Resources/Images/信息_128_128.png"/>
-    <Image x:Key="ErrorImage" Source="/PublicResources;component/Resources/Images/错误_128_128.png"/>
-    <Image x:Key="WarningImage" Source="/PublicResources;component/Resources/Images/警告_128_128.png"/>
-    <Image x:Key="QuestionImage" Source="/PublicResources;component/Resources/Images/问题_128_128.png"/>
+    <Image x:Key="InfoImage" Source="/PublicResources;component/Resources/Images/信息_64_64.png"/>
+    <Image x:Key="ErrorImage" Source="/PublicResources;component/Resources/Images/错误_64_64.png"/>
+    <Image x:Key="WarningImage" Source="/PublicResources;component/Resources/Images/警告_64_64.png"/>
+    <Image x:Key="QuestionImage" Source="/PublicResources;component/Resources/Images/问题_64_64.png"/>
     
     <s:String x:Key="InfoTitle">信息</s:String>
     <s:String x:Key="ErrorTitle">错误</s:String>

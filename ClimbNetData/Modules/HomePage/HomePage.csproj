@@ -102,6 +102,11 @@
       <Name>Log4Lib</Name>
       <Private>False</Private>
     </ProjectReference>
+    <ProjectReference Include="..\..\PublicShare\PublicResources\PublicResources.csproj">
+      <Project>{6ad10c02-6009-4ca5-b52b-4036a254f9ff}</Project>
+      <Name>PublicResources</Name>
+      <Private>False</Private>
+    </ProjectReference>
     <ProjectReference Include="..\PrismUICommon\PrismUICommon.csproj">
       <Project>{df4d7136-9163-4e56-bcaa-9ed6211f7da8}</Project>
       <Name>PrismUICommon</Name>

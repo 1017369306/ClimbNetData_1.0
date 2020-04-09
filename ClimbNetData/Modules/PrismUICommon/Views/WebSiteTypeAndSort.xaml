@@ -16,7 +16,7 @@
         <Grid Grid.Row="0">
             <WrapPanel x:Name="ModuleType" VerticalAlignment="Center" HorizontalAlignment="Left" Width="auto">
                 <Label Content="模板类型：" Tag="false" Margin="5,0,10,0" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                <WrapPanel VerticalAlignment="Stretch" x:Name="ModuleTypes" prism:RegionManager.RegionName="ModuleType">
+                <WrapPanel VerticalAlignment="Stretch" x:Name="ModuleTypes">
                     <!--<Label Content="热门" Tag="true" Margin="5,0,0,0" Padding="5,0,5,0" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                     <Label Content="本地生活" Tag="true" Margin="5,0,0,0" Padding="5,0,5,0" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                     <Label Content="电子商务" Tag="true" Margin="5,0,0,0" Padding="5,0,5,0" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>-->
@@ -27,7 +27,7 @@
             <WrapPanel x:Name="ModuleIndex" VerticalAlignment="Center" HorizontalAlignment="Left" Width="auto">
                 <Label Content="模板排序：" Tag="false" Margin="5,0,10,0" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                 <Border BorderThickness="0.3" BorderBrush="#FF859B96" Margin="5,0,0,0" HorizontalAlignment="Stretch">
-                    <WrapPanel VerticalAlignment="Stretch" x:Name="ModuleSort" prism:RegionManager.RegionName="ModuleSort">
+                    <WrapPanel VerticalAlignment="Stretch" x:Name="ModuleSort">
                         <!--<Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1*"/>
                             <ColumnDefinition Width="1*"/>

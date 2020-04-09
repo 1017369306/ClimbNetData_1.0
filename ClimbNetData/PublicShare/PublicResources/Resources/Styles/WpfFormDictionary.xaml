@@ -1,9 +1,394 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:PublicResources.Resources.Styles">
+                    xmlns:local="clr-namespace:PublicResources.Resources.Styles"
+                    xmlns:Custom="clr-namespace:PublicResources.Resources.Styles.Custom"
+                    xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock"
+                    >
 
+    <!--#region CustomButton-->
+    <Style TargetType="{x:Type Custom:ImageButton}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Custom:ImageButton}">
+
+                    <Border Background="{TemplateBinding Background}"  
+                            BorderBrush="{TemplateBinding BorderBrush}"  
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid x:Name="grid" Background="{TemplateBinding Background}">
+                            <Border x:Name="PART_Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}"/>
+
+                            <Grid HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}">
+                                <StackPanel HorizontalAlignment="Center" Orientation="{TemplateBinding IconContentOrientation}" VerticalAlignment="Center" Margin="{TemplateBinding Padding}">
+                                    <Grid HorizontalAlignment="Center" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                        <Image x:Name="PART_Icon" Source="{TemplateBinding Icon}" Height="{TemplateBinding IconHeight}" Width="{TemplateBinding IconWidth}"/>
+                                        <Image x:Name="PART_MouseOverIcon" Visibility="Collapsed" Source="{TemplateBinding IconMouseOver}"  Height="{TemplateBinding IconHeight}" Width="{TemplateBinding IconWidth}"/>
+                                        <Image x:Name="PART_PressIcon" Visibility="Collapsed" Source="{TemplateBinding IconPress}"  Height="{TemplateBinding IconHeight}" Width="{TemplateBinding IconWidth}"/>
+                                    </Grid>
+                                    <TextBlock x:Name="PART_Content" Text="{TemplateBinding Content}"   
+                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"   
+                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"  
+                                               SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"    
+                                               Margin="{TemplateBinding IconContentMargin}"  
+                                               Foreground="{TemplateBinding Foreground}"   
+                                               TextTrimming="CharacterEllipsis"/>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" TargetName="PART_Content" Value="{Binding MouseOverForeground,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:ImageButton}}}"/>
+                            <Setter Property="Background" TargetName="PART_Border" Value="{Binding MouseOverBackground,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:ImageButton}}}"/>
+                            <Setter Property="BorderBrush" TargetName="PART_Border" Value="{Binding MouseOverBorderBrush,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:ImageButton}}}"/>
+                            <Setter Property="Visibility" TargetName="PART_MouseOverIcon" Value="Visible"/>
+                            <Setter Property="Visibility" TargetName="PART_Icon" Value="Collapsed"/>
+                            <Setter Property="Visibility" TargetName="PART_PressIcon" Value="Collapsed"/>
+                        </Trigger>
+
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Foreground" TargetName="PART_Content" Value="{Binding MouseDownForeground,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:ImageButton}}}"/>
+                            <Setter Property="Background" TargetName="PART_Border" Value="{Binding MouseDownBackground,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:ImageButton}}}"/>
+                            <Setter Property="BorderBrush" TargetName="PART_Border" Value="{Binding MouseDownBorderBrush,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:ImageButton}}}"/>
+                            <Setter Property="Visibility" TargetName="PART_PressIcon" Value="Visible"/>
+                            <Setter Property="Visibility" TargetName="PART_Icon" Value="Collapsed"/>
+                            <Setter Property="Visibility" TargetName="PART_MouseOverIcon" Value="Collapsed"/>
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.5" />
+                        </Trigger>
+
+                        <Trigger Property="Text" SourceName="PART_Content" Value="">
+                            <Setter Property="Visibility" TargetName="PART_Content" Value="Collapsed"/>
+                        </Trigger>
+
+                        <Trigger Property="Text" SourceName="PART_Content" Value="{x:Null}">
+                            <Setter Property="Visibility" TargetName="PART_Content" Value="Collapsed"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type Custom:WebSiteImageButton}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Custom:WebSiteImageButton}">
+                    <!--最外面额border-->
+                    <!--<Border>-->
+                    <!--<Border x:Name="PART_Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}"/>-->
+                    <Grid Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" >
+                        <!--最外面额border-->
+                        <Border x:Name="PART_Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}"/>
+                        <Grid x:Name="grid" Margin="{TemplateBinding IconMargin}" HorizontalAlignment="Center" VerticalAlignment="Top">
+                            <!--<Border x:Name="ImgBorder" Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}"/>-->
+                            <!--<Grid>-->
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <!--图片-->
+                                <Border x:Name="ImgBorder" Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}"/>
+                                <Image x:Name="PART_Icon" Source="{TemplateBinding Icon}" Height="{TemplateBinding IconHeight}" Width="{TemplateBinding IconWidth}">
+                                    <Image.OpacityMask>
+                                        <VisualBrush Visual="{Binding ElementName=ImgBorder}"/>
+                                    </Image.OpacityMask>
+                                </Image>
+                                <TextBlock x:Name="PART_Content" Grid.Row="1" Text="{TemplateBinding Content}" FontSize="{TemplateBinding FontSize}"  
+                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"   
+                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"  
+                                               SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"    
+                                               Margin="{TemplateBinding IconContentMargin}"  
+                                               Foreground="{TemplateBinding Foreground}"   
+                                               TextTrimming="CharacterEllipsis"/>
+
+                            <!--</Grid>-->
+                        </Grid>
+                    </Grid>
+                    <!--</Border>-->
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" TargetName="PART_Content" Value="{Binding MouseOverForeground,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:WebSiteImageButton}}}"/>
+                            <Setter TargetName="PART_Content" Property="FontSize" Value="{Binding FontSizeMouseOver,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:WebSiteImageButton}}}"/>
+                            <Setter Property="Background" TargetName="PART_Border" Value="{Binding MouseOverBackground,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:WebSiteImageButton}}}"/>
+                            <Setter Property="Background" TargetName="ImgBorder" Value="{Binding MouseOverBackground,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:WebSiteImageButton}}}"/>
+                            <Setter Property="BorderBrush" TargetName="PART_Border" Value="{Binding MouseOverBorderBrush,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:WebSiteImageButton}}}"/>
+                            <Setter TargetName="PART_Icon" Property="Width" Value="{Binding IconWidthMouseOver,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:WebSiteImageButton}}}"/>
+                            <Setter TargetName="PART_Icon" Property="Height" Value="{Binding IconHeightMouseOver,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:WebSiteImageButton}}}"/>
+                            <!--<Setter Property="Visibility" TargetName="PART_MouseOverIcon" Value="Visible"/>
+                            <Setter Property="Visibility" TargetName="PART_Icon" Value="Collapsed"/>
+                            <Setter Property="Visibility" TargetName="PART_PressIcon" Value="Collapsed"/>-->
+                        </Trigger>
+
+                        <!--<Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Foreground" TargetName="PART_Content" Value="{Binding MouseDownForeground,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:WebSiteImageButton}}}"/>
+                            <Setter Property="Background" TargetName="PART_Border" Value="{Binding MouseDownBackground,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:WebSiteImageButton}}}"/>
+                            <Setter Property="BorderBrush" TargetName="PART_Border" Value="{Binding MouseDownBorderBrush,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:WebSiteImageButton}}}"/>
+                            <Setter Property="Visibility" TargetName="PART_PressIcon" Value="Visible"/>
+                            <Setter Property="Visibility" TargetName="PART_Icon" Value="Collapsed"/>
+                            <Setter Property="Visibility" TargetName="PART_MouseOverIcon" Value="Collapsed"/>
+                        </Trigger>-->
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.5" />
+                        </Trigger>
+
+                        <Trigger Property="Text" SourceName="PART_Content" Value="">
+                            <Setter Property="Visibility" TargetName="PART_Content" Value="Collapsed"/>
+                        </Trigger>
+
+                        <Trigger Property="Text" SourceName="PART_Content" Value="{x:Null}">
+                            <Setter Property="Visibility" TargetName="PART_Content" Value="Collapsed"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="WebSiteImageButton1" TargetType="{x:Type Custom:WebSiteImageButton}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Custom:WebSiteImageButton}">
+                    <!--最外面额border-->
+                    <!--<Border>-->
+                    <!--<Border x:Name="PART_Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}"/>-->
+                    <Grid Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" >
+                        <!--最外面额border-->
+                        <Border x:Name="PART_Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}"/>
+                        <Grid x:Name="grid" Margin="{TemplateBinding IconMargin}" HorizontalAlignment="Center" VerticalAlignment="Top">
+                            <!--<Border x:Name="ImgBorder" Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}"/>-->
+                            <!--<Grid>-->
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <!--图片-->
+                            <Border x:Name="ImgBorder" Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}"/>
+                            <Image x:Name="PART_Icon" Source="{TemplateBinding Icon}" Height="{TemplateBinding IconHeight}" Width="{TemplateBinding IconWidth}">
+                                <Image.OpacityMask>
+                                    <VisualBrush Visual="{Binding ElementName=ImgBorder}"/>
+                                </Image.OpacityMask>
+                            </Image>
+                            <TextBlock x:Name="PART_Content" Grid.Row="1" Text="{TemplateBinding Content}" FontSize="{TemplateBinding FontSize}"  
+                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"   
+                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"  
+                                               SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"    
+                                               Margin="{TemplateBinding IconContentMargin}"  
+                                               Foreground="{TemplateBinding Foreground}"   
+                                               TextTrimming="CharacterEllipsis"/>
+
+                            <!--</Grid>-->
+                        </Grid>
+                    </Grid>
+                    <!--</Border>-->
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" TargetName="PART_Content" Value="{Binding MouseOverForeground,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:WebSiteImageButton}}}"/>
+                            <Setter TargetName="PART_Content" Property="FontSize" Value="{Binding FontSizeMouseOver,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:WebSiteImageButton}}}"/>
+                            <!--<Setter Property="Background" TargetName="PART_Border" Value="{Binding MouseOverBackground,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:WebSiteImageButton}}}"/>
+                            <Setter Property="Background" TargetName="ImgBorder" Value="{Binding MouseOverBackground,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:WebSiteImageButton}}}"/>-->
+                            <Setter Property="BorderBrush" TargetName="PART_Border" Value="{Binding MouseOverBorderBrush,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:WebSiteImageButton}}}"/>
+                            <Setter TargetName="PART_Icon" Property="Width" Value="{Binding IconWidthMouseOver,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:WebSiteImageButton}}}"/>
+                            <Setter TargetName="PART_Icon" Property="Height" Value="{Binding IconHeightMouseOver,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:WebSiteImageButton}}}"/>
+                            <!--<Setter Property="Visibility" TargetName="PART_MouseOverIcon" Value="Visible"/>
+                            <Setter Property="Visibility" TargetName="PART_Icon" Value="Collapsed"/>
+                            <Setter Property="Visibility" TargetName="PART_PressIcon" Value="Collapsed"/>-->
+                        </Trigger>
+
+                        <!--<Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Foreground" TargetName="PART_Content" Value="{Binding MouseDownForeground,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:WebSiteImageButton}}}"/>
+                            <Setter Property="Background" TargetName="PART_Border" Value="{Binding MouseDownBackground,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:WebSiteImageButton}}}"/>
+                            <Setter Property="BorderBrush" TargetName="PART_Border" Value="{Binding MouseDownBorderBrush,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:WebSiteImageButton}}}"/>
+                            <Setter Property="Visibility" TargetName="PART_PressIcon" Value="Visible"/>
+                            <Setter Property="Visibility" TargetName="PART_Icon" Value="Collapsed"/>
+                            <Setter Property="Visibility" TargetName="PART_MouseOverIcon" Value="Collapsed"/>
+                        </Trigger>-->
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.5" />
+                        </Trigger>
+
+                        <Trigger Property="Text" SourceName="PART_Content" Value="">
+                            <Setter Property="Visibility" TargetName="PART_Content" Value="Collapsed"/>
+                        </Trigger>
+
+                        <Trigger Property="Text" SourceName="PART_Content" Value="{x:Null}">
+                            <Setter Property="Visibility" TargetName="PART_Content" Value="Collapsed"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="WebSiteImageButton2" TargetType="{x:Type Custom:WebSiteImageButton}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Custom:WebSiteImageButton}">
+                    <!--最外面额border-->
+                    <!--<Border>-->
+                    <!--<Border x:Name="PART_Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}"/>-->
+                    <Grid Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" >
+                        <!--最外面额border-->
+                        <Border x:Name="PART_Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}"/>
+                        <Grid x:Name="grid" Margin="{TemplateBinding IconMargin}" HorizontalAlignment="Center" VerticalAlignment="Top">
+                            <!--<Border x:Name="ImgBorder" Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}"/>-->
+                            <!--<Grid>-->
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <!--图片-->
+                            <Border x:Name="ImgBorder" Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}"/>
+                            <Image x:Name="PART_Icon" Source="{TemplateBinding Icon}" Height="{TemplateBinding IconHeight}" Width="{TemplateBinding IconWidth}">
+                                <Image.OpacityMask>
+                                    <VisualBrush Visual="{Binding ElementName=ImgBorder}"/>
+                                </Image.OpacityMask>
+                            </Image>
+                            <TextBlock x:Name="PART_Content" Grid.Row="1" Text="{TemplateBinding Content}" FontSize="{TemplateBinding FontSize}"  
+                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"   
+                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"  
+                                               SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"    
+                                               Margin="{TemplateBinding IconContentMargin}"  
+                                               Foreground="{TemplateBinding Foreground}"   
+                                               TextTrimming="CharacterEllipsis"/>
+                            <TextBlock Grid.Row="2" Text="共4个模板 >>" Margin="{TemplateBinding IconContentMargin}" Foreground="Gray" TextAlignment="Center" FontSize="10" FontWeight="Thin"/>
+
+                            <!--</Grid>-->
+                        </Grid>
+                    </Grid>
+                    <!--</Border>-->
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Padding" TargetName="PART_Border" Value="2,2,2,2"/>
+                            <Setter Property="BorderBrush" TargetName="PART_Border" Value="{Binding MouseOverBorderBrush,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:WebSiteImageButton}}}"/>
+                            <Setter Property="BorderThickness" TargetName="PART_Border" Value="1"/>
+                        </Trigger>
+
+                        <!--<Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Foreground" TargetName="PART_Content" Value="{Binding MouseDownForeground,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:WebSiteImageButton}}}"/>
+                            <Setter Property="Background" TargetName="PART_Border" Value="{Binding MouseDownBackground,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:WebSiteImageButton}}}"/>
+                            <Setter Property="BorderBrush" TargetName="PART_Border" Value="{Binding MouseDownBorderBrush,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:WebSiteImageButton}}}"/>
+                            <Setter Property="Visibility" TargetName="PART_PressIcon" Value="Visible"/>
+                            <Setter Property="Visibility" TargetName="PART_Icon" Value="Collapsed"/>
+                            <Setter Property="Visibility" TargetName="PART_MouseOverIcon" Value="Collapsed"/>
+                        </Trigger>-->
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.5" />
+                        </Trigger>
+
+                        <Trigger Property="Text" SourceName="PART_Content" Value="">
+                            <Setter Property="Visibility" TargetName="PART_Content" Value="Collapsed"/>
+                        </Trigger>
+
+                        <Trigger Property="Text" SourceName="PART_Content" Value="{x:Null}">
+                            <Setter Property="Visibility" TargetName="PART_Content" Value="Collapsed"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="WebSiteImageButton3" TargetType="{x:Type Custom:WebSiteImageButton}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Custom:WebSiteImageButton}">
+                    <!--最外面额border-->
+                    <!--<Border>-->
+                    <!--<Border x:Name="PART_Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}"/>-->
+                    <Grid Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" >
+                        <!--最外面额border-->
+                        <Border x:Name="PART_Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}"/>
+                        <Grid x:Name="grid" Margin="{TemplateBinding IconMargin}" HorizontalAlignment="Center" VerticalAlignment="Top">
+                            <!--<Border x:Name="ImgBorder" Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}"/>-->
+                            <!--<Grid>-->
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <!--图片-->
+                            <Border x:Name="ImgBorder" Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}"/>
+                            <Image x:Name="PART_Icon" Source="{TemplateBinding Icon}" Height="{TemplateBinding IconHeight}" Width="{TemplateBinding IconWidth}">
+                                <Image.OpacityMask>
+                                    <VisualBrush Visual="{Binding ElementName=ImgBorder}"/>
+                                </Image.OpacityMask>
+                            </Image>
+                            <TextBlock x:Name="PART_Content" Grid.Row="1" Text="{TemplateBinding Content}" FontSize="{TemplateBinding FontSize}"  
+                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"   
+                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"  
+                                               SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"    
+                                               Margin="{TemplateBinding IconContentMargin}"  
+                                               Foreground="{TemplateBinding Foreground}"   
+                                               TextTrimming="CharacterEllipsis"/>
+                            <Grid Grid.Row="2" x:Name="ViewDetails" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="{TemplateBinding MouseOverBackground}" Visibility="Hidden">
+                                <TextBlock Text="查看详情 >>" Margin="{TemplateBinding IconContentMargin}" Foreground="White" TextAlignment="Center" FontSize="10"/>
+                            </Grid>
+                            <!--</Grid>-->
+                        </Grid>
+                    </Grid>
+                    <!--</Border>-->
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Visibility" TargetName="ViewDetails" Value="Visible"/>
+                            <!--<Setter TargetName="PART_Content" Property="FontSize" Value="{Binding FontSizeMouseOver,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:WebSiteImageButton}}}"/>-->
+                            <!--<Setter Property="Background" TargetName="PART_Border" Value="{Binding MouseOverBackground,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:WebSiteImageButton}}}"/>
+                            <Setter Property="Background" TargetName="ImgBorder" Value="{Binding MouseOverBackground,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:WebSiteImageButton}}}"/>-->
+                            <Setter Property="BorderBrush" TargetName="PART_Border" Value="{Binding MouseOverBorderBrush,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:WebSiteImageButton}}}"/>
+                            <!--<Setter TargetName="PART_Icon" Property="Width" Value="{Binding IconWidthMouseOver,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:WebSiteImageButton}}}"/>
+                            <Setter TargetName="PART_Icon" Property="Height" Value="{Binding IconHeightMouseOver,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:WebSiteImageButton}}}"/>-->
+                            <!--<Setter Property="Visibility" TargetName="PART_MouseOverIcon" Value="Visible"/>
+                            <Setter Property="Visibility" TargetName="PART_Icon" Value="Collapsed"/>
+                            <Setter Property="Visibility" TargetName="PART_PressIcon" Value="Collapsed"/>-->
+                        </Trigger>
+
+                        <!--<Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Foreground" TargetName="PART_Content" Value="{Binding MouseDownForeground,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:WebSiteImageButton}}}"/>
+                            <Setter Property="Background" TargetName="PART_Border" Value="{Binding MouseDownBackground,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:WebSiteImageButton}}}"/>
+                            <Setter Property="BorderBrush" TargetName="PART_Border" Value="{Binding MouseDownBorderBrush,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Custom:WebSiteImageButton}}}"/>
+                            <Setter Property="Visibility" TargetName="PART_PressIcon" Value="Visible"/>
+                            <Setter Property="Visibility" TargetName="PART_Icon" Value="Collapsed"/>
+                            <Setter Property="Visibility" TargetName="PART_MouseOverIcon" Value="Collapsed"/>
+                        </Trigger>-->
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.5" />
+                        </Trigger>
+
+                        <Trigger Property="Text" SourceName="PART_Content" Value="">
+                            <Setter Property="Visibility" TargetName="PART_Content" Value="Collapsed"/>
+                        </Trigger>
+
+                        <Trigger Property="Text" SourceName="PART_Content" Value="{x:Null}">
+                            <Setter Property="Visibility" TargetName="PART_Content" Value="Collapsed"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <!--#endregion-->
     
     <!--#region Button-->
+
+    <!--<Style x:Key="BlueButton" TargetType="Button">
+        <Setter Property="Content" Value="{Binding Content}"/>
+        <Setter Property="c"
+    </Style>-->
 
     <Style x:Key="CloseBtnStyle" TargetType="Button">
         <Setter Property="Width" Value="40"/>
@@ -92,6 +477,21 @@
             </Trigger>
         </Style.Triggers>
     </Style>-->
+    <!--#endregion-->
+
+    <!--#region DataTemplate-->
+    <DataTemplate x:Key="DocumentHeaderTemplate">
+        <Border BorderThickness="1">
+            <Grid Background="Transparent">
+                <!--<Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2"/>
+                </Grid.RowDefinitions>
+                <Image Grid.Row="1" VerticalAlignment="Bottom" Source="/PublicResources;component/Resources/Images/横.png"/>-->
+                <TextBlock Text="{Binding Title}" Background="Transparent" Foreground="Black"/>
+            </Grid>
+        </Border>
+    </DataTemplate>
     <!--#endregion-->
     
     <Style x:Key="LabelStyle1" TargetType="Label">

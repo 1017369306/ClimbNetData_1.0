@@ -4,5 +4,101 @@
         <name>PublicResources</name>
     </assembly>
     <members>
+        <member name="F:PublicResources.Resources.Styles.Custom.ImageButton.MouseOverBackgroundProperty">
+            <summary>  
+            鼠标移上去的背景颜色  
+            </summary>  
+        </member>
+        <member name="F:PublicResources.Resources.Styles.Custom.ImageButton.MouseDownBackgroundProperty">
+            <summary>  
+            鼠标按下去的背景颜色  
+            </summary>  
+        </member>
+        <member name="F:PublicResources.Resources.Styles.Custom.ImageButton.MouseOverForegroundProperty">
+            <summary>  
+            鼠标移上去的字体颜色  
+            </summary>  
+        </member>
+        <member name="F:PublicResources.Resources.Styles.Custom.ImageButton.MouseDownForegroundProperty">
+            <summary>  
+            鼠标按下去的字体颜色  
+            </summary>  
+        </member>
+        <member name="F:PublicResources.Resources.Styles.Custom.ImageButton.MouseOverBorderBrushProperty">
+            <summary>  
+            鼠标移上去的边框颜色  
+            </summary>  
+        </member>
+        <member name="F:PublicResources.Resources.Styles.Custom.ImageButton.MouseDownBorderBrushProperty">
+            <summary>  
+            鼠标按下去的边框颜色  
+            </summary>  
+        </member>
+        <member name="F:PublicResources.Resources.Styles.Custom.ImageButton.CornerRadiusProperty">
+            <summary>  
+            圆角  
+            </summary>  
+        </member>
+        <member name="F:PublicResources.Resources.Styles.Custom.WebSiteImageButton.MouseOverBackgroundProperty">
+            <summary>  
+            鼠标移上去的背景颜色  
+            </summary>  
+        </member>
+        <member name="F:PublicResources.Resources.Styles.Custom.WebSiteImageButton.MouseDownBackgroundProperty">
+            <summary>  
+            鼠标按下去的背景颜色  
+            </summary>  
+        </member>
+        <member name="F:PublicResources.Resources.Styles.Custom.WebSiteImageButton.MouseOverForegroundProperty">
+            <summary>  
+            鼠标移上去的字体颜色  
+            </summary>  
+        </member>
+        <member name="F:PublicResources.Resources.Styles.Custom.WebSiteImageButton.MouseDownForegroundProperty">
+            <summary>  
+            鼠标按下去的字体颜色  
+            </summary>  
+        </member>
+        <member name="F:PublicResources.Resources.Styles.Custom.WebSiteImageButton.MouseOverBorderBrushProperty">
+            <summary>  
+            鼠标移上去的边框颜色  
+            </summary>  
+        </member>
+        <member name="F:PublicResources.Resources.Styles.Custom.WebSiteImageButton.MouseDownBorderBrushProperty">
+            <summary>  
+            鼠标按下去的边框颜色  
+            </summary>  
+        </member>
+        <member name="F:PublicResources.Resources.Styles.Custom.WebSiteImageButton.CornerRadiusProperty">
+            <summary>  
+            圆角  
+            </summary>  
+        </member>
+        <member name="T:PublicResources.Resources.Styles.ImageButton">
+            <summary>
+            ImageButton.xaml 的交互逻辑
+            </summary>
+            <summary>
+            ImageButton
+            </summary>
+        </member>
+        <member name="M:PublicResources.Resources.Styles.ImageButton.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:PublicResources.Resources.Styles.WebSiteImageButton">
+            <summary>
+            WebSiteImageButton.xaml 的交互逻辑
+            </summary>
+            <summary>
+            WebSiteImageButton
+            </summary>
+        </member>
+        <member name="M:PublicResources.Resources.Styles.WebSiteImageButton.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
     </members>
 </doc>

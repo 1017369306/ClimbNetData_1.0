@@ -33,7 +33,7 @@ namespace HomePage
                 IRegion detailsRegion = this._regionManager.Regions[RegionNames.ContentRegion];
                 HomePage.Views.HomePage view = new HomePage.Views.HomePage();
                 bool createRegionManagerScope = true;
-                IRegionManager detailsRegionManager = detailsRegion.Add(view, "首页",
+                IRegionManager detailsRegionManager = detailsRegion.Add(view, ViewNames.HomePage,
                                             createRegionManagerScope);
                 detailsRegionManager.Regions[RegionNames.SearchText].Add(new PrismUICommon.Views.SearchTextBox());
             }
@@ -51,31 +51,19 @@ namespace HomePage
             _unityContainer = container;
             //首次加载时加载首页
             IRegionManager AllRegionManager = _unityContainer.Resolve<IRegionManager>();
-            if (AllRegionManager.Regions[RegionNames.ContentRegion].GetView("首页") == null)
+            if (AllRegionManager.Regions[RegionNames.ContentRegion].GetView(ViewNames.HomePage) == null)
             {
                 Load();
             }
-        }
-
-        public void RenderHomePage()
-        {
-            //添加首页
-            IRegion ContentRegion = this._regionManager.Regions[RegionNames.ContentRegion];
-            PrismUICommon.Views.SearchTextBox searchTextBox = new PrismUICommon.Views.SearchTextBox();
-            //SearchTextBox.SearchTextBoxModule searchTextBoxModule = _unityContainer.Resolve<SearchTextBox.SearchTextBoxModule>();
-            ContentRegion.Add(searchTextBox);
-            //searchTextBoxModule.DisplaySearchTextBox();
-
-
-            //IRegion SearchText = this._regionManager.Regions[RegionNames.SearchText];
-            //PrismUICommon.Views.SearchTextBox searchTextBox = new PrismUICommon.Views.SearchTextBox();
-            //SearchText.RegionManager.AddToRegion(RegionNames.SearchText, searchTextBox);
         }
 
         public void OnInitialized(IContainerProvider containerProvider)
         {
             try
             {
+                var regionManager = containerProvider.Resolve<IRegionManager>();
+                //regionManager.RequestNavigate(RegionNames.ContentRegion, "HomePage");
+
                 //RenderHomePage();
 
                 //IRegion detailsRegion = this._regionManager.Regions[RegionNames.ContentRegion];
@@ -142,8 +130,20 @@ namespace HomePage
             //}
         }
 
+        /// <summary>
+        /// 用于向应用程序将使用的容器注册类型。
+        /// 例如： this.container.RegisterType<IOrdersController, OrdersController>();
+        ///        this._ordersController = this.container.Resolve<OrdersController>();
+        /// </summary>
+        /// <param name="containerRegistry"></param>
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
+
+            //containerRegistry.RegisterForNavigation<Views.HomePage>();
+            //containerRegistry.RegisterForNavigation<Views.ChooseModel>();
+            //containerRegistry.RegisterForNavigation<Views.ChooseModel1>();
+            //containerRegistry.RegisterForNavigation<Views.ChooseModel2>();
+
             //containerRegistry.RegisterForNavigation<View.ClimbWebSite>();
         }
 

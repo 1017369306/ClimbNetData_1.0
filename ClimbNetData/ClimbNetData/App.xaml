@@ -9,6 +9,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/PublicResources;component/Resources/Styles/WpfFormDictionary.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/PublicResources;component/Resources/Styles/BrushColor.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Log4Lib;component/Style/CustomNotificationTemplate.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
